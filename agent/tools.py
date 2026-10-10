@@ -12,6 +12,7 @@ class Sandbox:
         self.root = Path(root).resolve()
         self.cache = {}  # path -> content last returned (only used when cache_reads=True)
         self.cache_reads = False
+        self.req = "requirements.txt"  # path of the requirements file inside the sandbox
 
     def _p(self, rel):
         p = (self.root / rel).resolve()
@@ -49,7 +50,7 @@ class Sandbox:
 
     @neatlogs.span(kind="TOOL", name="install_requirements")
     def install_requirements(self):
-        out, rc = self._run(["uv", "pip", "install", "-q", "--python", str(self.root / ".venv/bin/python"), "-r", "requirements.txt"])
+        out, rc = self._run(["uv", "pip", "install", "-q", "--python", str(self.root / ".venv/bin/python"), "-r", self.req])
         return f"exit={rc}\n{out}"
 
 

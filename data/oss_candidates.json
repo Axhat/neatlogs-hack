@@ -1,0 +1,1345 @@
+[
+ {
+  "repo": "mariamiah/Containerization-With-Docker-Compose",
+  "pr": 3,
+  "title": "Bump pyyaml from 3.13 to 5.4 in /Server",
+  "parent": "5c26f8f2cc8f4c827ef98540621efae939f40e47",
+  "date": "2025-12-01",
+  "merge": "d149ade8fac791cfd8a840016bc8cba46c00d2e5",
+  "files": [
+   "Server/requirements.txt"
+  ],
+  "tests": 5,
+  "pyfiles": 22,
+  "sizeKB": 1464,
+  "stars": 0
+ },
+ {
+  "repo": "willu47/python-gantt",
+  "pr": 3,
+  "title": "Bump pyyaml from 3.11 to 5.4",
+  "parent": "a8f23a0cd58f2b83e67859664572357df4bcbcd4",
+  "date": "2025-05-22",
+  "merge": "0458986353f4a6de6db4dcfbbc83fca8ba705e30",
+  "files": [
+   "requirements-dev.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 7,
+  "sizeKB": 214,
+  "stars": 1
+ },
+ {
+  "repo": "MattHealy/flask-skeleton",
+  "pr": 3,
+  "title": "Bump pyyaml from 3.12 to 5.4",
+  "parent": "4ec4a06998d689412c593e5650ab3b0726b231da",
+  "date": "2025-01-21",
+  "merge": "7b6d9ddde6f53c7b74581377339618ce9ed8c425",
+  "files": [
+   "requirements-common.txt"
+  ],
+  "tests": 2,
+  "pyfiles": 10,
+  "sizeKB": 26,
+  "stars": 0
+ },
+ {
+  "repo": "wzab/agwb",
+  "pr": 3,
+  "title": "Path configuration",
+  "parent": "3227a98dd65a84f18a5951a23ebab1a44691583f",
+  "date": "2018-12-06",
+  "merge": "12a67cc468cadeeac703468f8b752873f6d76825",
+  "files": [
+   "src/addr_gen_wb.py",
+   "src/wb_block.py"
+  ],
+  "tests": 1,
+  "pyfiles": 4,
+  "sizeKB": 637,
+  "stars": 12
+ },
+ {
+  "repo": "haney/python-ansel",
+  "pr": 3,
+  "title": "Mark 'six' as an install dependency",
+  "parent": "9b7cb1ef3ca3983076e6eefb7f13e801f65fff26",
+  "date": "2018-12-30",
+  "merge": "f5541cfb84cfea839bd2329cea59532a8418f8dd",
+  "files": [
+   "requirements_dev.txt",
+   "setup.py"
+  ],
+  "tests": 6,
+  "pyfiles": 15,
+  "sizeKB": 185,
+  "stars": 3
+ },
+ {
+  "repo": "Python-Optional/optional.py",
+  "pr": 3,
+  "title": "By using mutation instead of assignment, avoid shadowing.",
+  "parent": "945bbd09fabc3cc0e4eb58b0b55e6bd582978de9",
+  "date": "2018-09-07",
+  "merge": "3f48d62489d4517b2371ee0e86948be9ef16d1e4",
+  "files": [
+   "test_optional.py"
+  ],
+  "tests": 1,
+  "pyfiles": 2,
+  "sizeKB": 461,
+  "stars": 47
+ },
+ {
+  "repo": "haney/python-ansel",
+  "pr": 4,
+  "title": "Fix release date.",
+  "parent": "f5541cfb84cfea839bd2329cea59532a8418f8dd",
+  "date": "2018-12-30",
+  "merge": "6174d3fe7d939d68693ab80cb65b4b49c63e71f5",
+  "files": [
+   "HISTORY.rst"
+  ],
+  "tests": 6,
+  "pyfiles": 15,
+  "sizeKB": 185,
+  "stars": 3
+ },
+ {
+  "repo": "StackStorm-Exchange/stackstorm-nagios",
+  "pr": 4,
+  "title": "Bump version to fix tagging issue",
+  "parent": "0323e896d511e1a7ca07f18b1c47393feb7f9973",
+  "date": "2018-12-22",
+  "merge": "fe2e6aad2fbb3aea820a7a9e573e72bc7d150b38",
+  "files": [
+   "CHANGES.md",
+   "pack.yaml"
+  ],
+  "tests": 1,
+  "pyfiles": 2,
+  "sizeKB": 79,
+  "stars": 6
+ },
+ {
+  "repo": "aniket889999/RoadSense-India-",
+  "pr": 4,
+  "title": "docs: record frozen pothole baseline results",
+  "parent": "477a1d6f1b8566da4b552786c61f1bbb477efefd",
+  "date": "2026-08-28",
+  "merge": "654dedb31ef6e5bc39ab439f53e8ad7324297495",
+  "files": [
+   "README.md",
+   "docs/custom_pothole_model.md",
+   "docs/frozen_baseline_results.md"
+  ],
+  "tests": 18,
+  "pyfiles": 46,
+  "sizeKB": 768,
+  "stars": 0
+ },
+ {
+  "repo": "woile/starlette-apispec",
+  "pr": 4,
+  "title": "fix: Fix support for apispec>=1.0.0b5",
+  "parent": "0e043a99572c245cb9706429ea24d6a6af709a63",
+  "date": "2019-01-03",
+  "merge": "3d3efb4731af91b735ec0cb1a435f82682495090",
+  "files": [
+   "README.rst",
+   "pyproject.toml",
+   "tests/test_starlette_apispec.py"
+  ],
+  "tests": 2,
+  "pyfiles": 4,
+  "sizeKB": 84,
+  "stars": 53
+ },
+ {
+  "repo": "zhammer/faaspact-verifier",
+  "pr": 4,
+  "title": "0.0.2",
+  "parent": "8e2d49e4b7704648d4541f6d6985ee2e569ef9f3",
+  "date": "2018-12-05",
+  "merge": "9560e9875b8b9af4b2f9759b352faaceb3f001a6",
+  "files": [
+   "setup.py"
+  ],
+  "tests": 1,
+  "pyfiles": 25,
+  "sizeKB": 76,
+  "stars": 0
+ },
+ {
+  "repo": "borzunov/dontasq",
+  "pr": 2,
+  "title": "add query() method",
+  "parent": "324e81372964c72078c917caf18c48a3de194ec2",
+  "date": "2018-12-11",
+  "merge": "3d9dabc2f2780f79233a9c3fc74733fb50297ad9",
+  "files": [
+   "dontasq/asq_binding.py",
+   "tests/test_dontasq.py",
+   "tox.ini"
+  ],
+  "tests": 2,
+  "pyfiles": 6,
+  "sizeKB": 9,
+  "stars": 33
+ },
+ {
+  "repo": "woile/starlette-apispec",
+  "pr": 2,
+  "title": "Support later versions of starlette",
+  "parent": "7479644066675f8d058eec6196d042012a3c571e",
+  "date": "2018-12-18",
+  "merge": "796923d10fc344a499affa7cddcca0fef8224a11",
+  "files": [
+   "pyproject.toml"
+  ],
+  "tests": 2,
+  "pyfiles": 4,
+  "sizeKB": 84,
+  "stars": 53
+ },
+ {
+  "repo": "eihabhala/MNIST",
+  "pr": 6,
+  "title": "Bump pillow from 6.2.2 to 9.3.0",
+  "parent": "eab1c0ec5354889a658e07c2b2de3c73a8abdc5f",
+  "date": "2026-07-01",
+  "merge": "5278ed9b050569bd63c5c9041a1cd2cea6b752f9",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 11,
+  "pyfiles": 41,
+  "sizeKB": 457,
+  "stars": 0
+ },
+ {
+  "repo": "haney/python-ansel",
+  "pr": 6,
+  "title": "Fix quotes in bumpversion search patterns",
+  "parent": "2ba0f848845da5ebadee6356abcc6e50ae1982e2",
+  "date": "2019-01-02",
+  "merge": "a379eb9afed554e18ae10b646c6a80c422beeec1",
+  "files": [
+   "setup.cfg"
+  ],
+  "tests": 6,
+  "pyfiles": 15,
+  "sizeKB": 185,
+  "stars": 3
+ },
+ {
+  "repo": "jacquerie/github-compose",
+  "pr": 6,
+  "title": "global: remove coding comment where not needed",
+  "parent": "ee4e0cfa807f9c7fb7231ace5c8c5cedff67c5ea",
+  "date": "2018-12-21",
+  "merge": "cbb93523c7abbcfe6de5a80faddd8b3a5337cc71",
+  "files": [
+   "run-tests.sh",
+   "setup.cfg"
+  ],
+  "tests": 6,
+  "pyfiles": 5,
+  "sizeKB": 27,
+  "stars": 1
+ },
+ {
+  "repo": "Crown-Commercial-Service/digitalmarketplace-antivirus-api",
+  "pr": 6,
+  "title": "config: set global empty defaults for `_TOKENS` config variables",
+  "parent": "c2b4ff19b2d87e2e512f746bd14d9280418ae5e5",
+  "date": "2018-09-11",
+  "merge": "4135655ad37b33396ab0204dee0a55d3c54f5a45",
+  "files": [
+   "config.py"
+  ],
+  "tests": 14,
+  "pyfiles": 27,
+  "sizeKB": 417,
+  "stars": 3
+ },
+ {
+  "repo": "Python-Optional/optional.py",
+  "pr": 6,
+  "title": "Add setup.py for packaging.",
+  "parent": "5901ad8b791c96f61f45af76392332b733c4e887",
+  "date": "2018-09-10",
+  "merge": "5b91e195bfb8a279d1e0f2643b912fa40cd00325",
+  "files": [
+   "README.md",
+   "setup.cfg",
+   "setup.py"
+  ],
+  "tests": 1,
+  "pyfiles": 5,
+  "sizeKB": 461,
+  "stars": 47
+ },
+ {
+  "repo": "mike03052000/test",
+  "pr": 6,
+  "title": "Delete t3.log",
+  "parent": "dd2a7db964ee2ad8745718b6404359f652d815f7",
+  "date": "2018-09-05",
+  "merge": "22e3229d5a9a6e54cf405b011ee234a59530898e",
+  "files": [
+   "t1/t3.log"
+  ],
+  "tests": 2,
+  "pyfiles": 34,
+  "sizeKB": 1577,
+  "stars": 0
+ },
+ {
+  "repo": "brandonhaynes100/stocks_api",
+  "pr": 6,
+  "title": "day 11 lecture 3 checkpoint",
+  "parent": "db39760050f02243a7efceb74f00fb9e9e25280f",
+  "date": "2018-08-29",
+  "merge": "101641aa39a0a8354d3369554209e05b4f24affe",
+  "files": [
+   "setup.py",
+   "stocks_api/models/__init__.py",
+   "stocks_api/models/schemas.py",
+   "stocks_api/scripts/initializedb.py",
+   "stocks_api/views/portfolio.py"
+  ],
+  "tests": 1,
+  "pyfiles": 22,
+  "sizeKB": 151,
+  "stars": 0
+ },
+ {
+  "repo": "RRisto/simple_classifiy",
+  "pr": 5,
+  "title": "Bump jinja2 from 2.10 to 2.11.3",
+  "parent": "f49eff75aee63615a16ccbf48b66d39bc18c39f7",
+  "date": "2026-09-10",
+  "merge": "242d810f3eb38b631edcc68fe71ac88da02dcdb3",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 11,
+  "pyfiles": 17,
+  "sizeKB": 535,
+  "stars": 1
+ },
+ {
+  "repo": "jstutters/toolaudit",
+  "pr": 1,
+  "title": "Bump jinja2 from 2.10.1 to 2.11.3",
+  "parent": "0143c611ee5983f0dc3328c2e5617add7627158e",
+  "date": "2026-08-27",
+  "merge": "3bc9dbd8ac71600df741b68d92b473e0ae6577d0",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 3,
+  "pyfiles": 10,
+  "sizeKB": 79,
+  "stars": 1
+ },
+ {
+  "repo": "leigh-jewell/cmx-step-tracker",
+  "pr": 2,
+  "title": "Bump jinja2 from 2.10 to 2.11.3",
+  "parent": "bf85f7eac028aaafb415a93e647c196552903385",
+  "date": "2026-05-30",
+  "merge": "eec6d54d9e7e96b1ac9d9b466e415dd102a8eebf",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 3,
+  "pyfiles": 15,
+  "sizeKB": 361,
+  "stars": 1
+ },
+ {
+  "repo": "BobasB/learn_docker",
+  "pr": 1,
+  "title": "Bump jinja2 from 2.10.1 to 2.11.3 in /2_web_in_docker",
+  "parent": "4b690a5f1e3d344934689e4c2f2ae751e777d1cf",
+  "date": "2026-05-13",
+  "merge": "1b808cf458d7a17f16691e6b7ca36fa4e694bf64",
+  "files": [
+   "2_web_in_docker/Pipfile.lock"
+  ],
+  "tests": 2,
+  "pyfiles": 9,
+  "sizeKB": 19,
+  "stars": 0
+ },
+ {
+  "repo": "RRisto/simple_classifiy",
+  "pr": 21,
+  "title": "Bump jinja2 from 2.11.3 to 3.1.6",
+  "parent": "044f31e8805fc3e6982dd20a2faa609cd3997c47",
+  "date": "2026-10-10",
+  "merge": "b36d7fd6ea18a5214990f15f4448581a992d4ca5",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 11,
+  "pyfiles": 17,
+  "sizeKB": 535,
+  "stars": 1
+ },
+ {
+  "repo": "Syedayan23/github-security-governance-poc",
+  "pr": 5,
+  "title": "Bump jinja2 from 2.11.2 to 3.1.6 in /sample_vulnerable_app",
+  "parent": "7f1fffdd88278138f40676a7b91c417f8df52b16",
+  "date": "2026-09-30",
+  "merge": "08008549eefab11e14e5141eb0822a964b0cda9d",
+  "files": [
+   "sample_vulnerable_app/requirements.txt"
+  ],
+  "tests": 3,
+  "pyfiles": 19,
+  "sizeKB": 98,
+  "stars": 0
+ },
+ {
+  "repo": "jstutters/pirec",
+  "pr": 28,
+  "title": "Bump jinja2 from 2.11.3 to 3.1.6",
+  "parent": "f04e15d89c9339c04188f5b964cde2932ba318bc",
+  "date": "2026-09-02",
+  "merge": "bc1733d96cc5a012c6f6b6d77c2cb7831410a121",
+  "files": [
+   "requirements-dev.txt"
+  ],
+  "tests": 6,
+  "pyfiles": 22,
+  "sizeKB": 205,
+  "stars": 0
+ },
+ {
+  "repo": "jstutters/toolaudit",
+  "pr": 9,
+  "title": "Bump jinja2 from 2.11.3 to 3.1.6",
+  "parent": "8020ac2e242388d17293eb9fb8ac90fde0586c53",
+  "date": "2026-08-27",
+  "merge": "82877ca1bd5a191e0fe5e8a7d33b894c7a8438df",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 3,
+  "pyfiles": 10,
+  "sizeKB": 79,
+  "stars": 1
+ },
+ {
+  "repo": "maksudsharif/wikifacts",
+  "pr": 12,
+  "title": "Bump jinja2 from 2.11.2 to 3.1.6",
+  "parent": "b109cc0ef33e451d856b065aebab06f6a2a613f1",
+  "date": "2026-07-18",
+  "merge": "aed10fb61db98aacd607ded2342468354f3054e4",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 4,
+  "pyfiles": 9,
+  "sizeKB": 104,
+  "stars": 0
+ },
+ {
+  "repo": "LeandroSPimenta/POEC_Bank_proj",
+  "pr": 11,
+  "title": "Bump jinja2 from 2.11.3 to 3.1.6",
+  "parent": "9e8a856495cd206f41858db890bd51cd8d2e2be6",
+  "date": "2026-07-28",
+  "merge": "0b7e61461132eb3d31caffe6eed813d10d805814",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 5,
+  "pyfiles": 55,
+  "sizeKB": 1637,
+  "stars": 0
+ },
+ {
+  "repo": "maksudsharif/wikifacts",
+  "pr": 1,
+  "title": "Bump jinja2 from 2.11.2 to 2.11.3",
+  "parent": "5290df968bc0b38624f9d669a5c0b21117ea0d34",
+  "date": "2026-07-18",
+  "merge": "2698e51189eda2e0ad7abef2682984387b4de785",
+  "files": [
+   "poetry.lock"
+  ],
+  "tests": 4,
+  "pyfiles": 9,
+  "sizeKB": 104,
+  "stars": 0
+ },
+ {
+  "repo": "3slab/pygisapi",
+  "pr": 5,
+  "title": "Bump jinja2 from 2.11.2 to 2.11.3",
+  "parent": "ccead89919a9ef342d36bedfc528b906bfd9930d",
+  "date": "2026-07-16",
+  "merge": "2d04fdd0ef63dfb1b106e44904e7f42da6c97ad2",
+  "files": [
+   "Pipfile.lock"
+  ],
+  "tests": 13,
+  "pyfiles": 19,
+  "sizeKB": 75,
+  "stars": 1
+ },
+ {
+  "repo": "akvara/svoris",
+  "pr": 8,
+  "title": "Bump requests from 2.18.2 to 2.20.0 in /backend",
+  "parent": "0487718c7ddfc230bbf8b8a69e2cc177e3462f99",
+  "date": "2026-07-26",
+  "merge": "bdafcb69c95a7a351836ab9b20c2c4c2021bff92",
+  "files": [
+   "backend/requirements.txt"
+  ],
+  "tests": 2,
+  "pyfiles": 16,
+  "sizeKB": 1946,
+  "stars": 0
+ },
+ {
+  "repo": "fabric8-analytics/fabric8-analytics-license-analysis",
+  "pr": 206,
+  "title": "Bump requests from 2.18.1 to 2.20.0",
+  "parent": "29c81a1e4bfee8af41c0f12d5e98f8b562d66ae4",
+  "date": "2019-10-22",
+  "merge": "76fe39de61ad6e3f2f997880b543f8c565abb876",
+  "files": [
+   "requirements.in",
+   "requirements.txt"
+  ],
+  "tests": 58,
+  "pyfiles": 29,
+  "sizeKB": 493,
+  "stars": 6
+ },
+ {
+  "repo": "Modulus/newspaperApp",
+  "pr": 18,
+  "title": "Bump requests from 2.18.4 to 2.32.4",
+  "parent": "eb00d01608d8319c30ec488a9185b744e0a14c04",
+  "date": "2025-11-25",
+  "merge": "8cd30429b5ebf44f57eb3a9dd48219588c9d79b8",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 3,
+  "pyfiles": 5,
+  "sizeKB": 89,
+  "stars": 0
+ },
+ {
+  "repo": "ni/nixnet-python",
+  "pr": 280,
+  "title": "chore(deps): bump requests from 2.18.2 to 2.20.0",
+  "parent": "4af8d5c603cdd1272a07f0f326ee456f218c78c9",
+  "date": "2021-09-01",
+  "merge": "9cfc55860fe6a6b73f2f948b6c90a50274785fbe",
+  "files": [
+   "requirements_test.txt"
+  ],
+  "tests": 26,
+  "pyfiles": 81,
+  "sizeKB": 1043,
+  "stars": 30
+ },
+ {
+  "repo": "seanluong/cookiecutter-python-cli",
+  "pr": 8,
+  "title": "Bump requests from 2.18.4 to 2.20.0",
+  "parent": "b7e8caf6d6b086c90bd8ee8aafc01d7748a36b55",
+  "date": "2021-01-25",
+  "merge": "fcf2c24425ca26d0791a8ab9dbec2f547cce82e4",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 3,
+  "pyfiles": 5,
+  "sizeKB": 30,
+  "stars": 68
+ },
+ {
+  "repo": "SeyhanAmasyalii/ankara-rehberi-app",
+  "pr": 12,
+  "title": "Bump requests from 2.19.1 to 2.33.0",
+  "parent": "92264b28891931bae9a25027b43c776c1b4770c0",
+  "date": "2026-10-07",
+  "merge": "2d4c4a656ef439c91cc5febbc54cbbe6cd29b06b",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 2,
+  "pyfiles": 5,
+  "sizeKB": 19,
+  "stars": 0
+ },
+ {
+  "repo": "chakravarthyvivan/devsecops-project",
+  "pr": 7,
+  "title": "Bump requests from 2.19.1 to 2.33.0",
+  "parent": "661c6e5662e03354e466e83e6898f3ecab7ad2d8",
+  "date": "2026-08-27",
+  "merge": "17173099fbea286ef0ee90cdcf52b3cffeb0e4d4",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 2,
+  "sizeKB": 29,
+  "stars": 0
+ },
+ {
+  "repo": "chakravarthyvivan/devsecops-project",
+  "pr": 2,
+  "title": "Bump requests from 2.19.1 to 2.34.2",
+  "parent": "0cb4be60b2204a1c8ff9247ce815d1c6065d486a",
+  "date": "2026-08-26",
+  "merge": "b69d3c893645b51d76e2991124725356fc1ddf8b",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 2,
+  "sizeKB": 29,
+  "stars": 0
+ },
+ {
+  "repo": "gustavolima1337/devsecops",
+  "pr": 5,
+  "title": "chore(deps): bump requests from 2.19.1 to 2.34.2",
+  "parent": "c9934eea8a6f2140d9a357bf8c683fede831c8ea",
+  "date": "2026-08-19",
+  "merge": "7db60050ffaa3cd2645e63f9db7ce748a013e0e9",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 3,
+  "sizeKB": 45,
+  "stars": 0
+ },
+ {
+  "repo": "Snehasis5/ci-cd-demo",
+  "pr": 1,
+  "title": "Bump requests from 2.19.0 to 2.32.3",
+  "parent": "07bce7a88ebc24cb06dcc3625d9b21c6cd959cee",
+  "date": "2025-05-20",
+  "merge": "584d89fae3fb3e58d260449eeca7a4a7c4e67862",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 1,
+  "sizeKB": 11,
+  "stars": 0
+ },
+ {
+  "repo": "kapihllkumar/my-blog-practice",
+  "pr": 8,
+  "title": "Bump requests from 2.19.1 to 2.32.2",
+  "parent": "6db91a9475031ba6ec2064742d939b88e452fd4b",
+  "date": "2025-05-20",
+  "merge": "6f9c2c4786d4dbcb088de4a912a619410ab03555",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 1,
+  "sizeKB": 30,
+  "stars": 0
+ },
+ {
+  "repo": "miracle2k/docker-deploy",
+  "pr": 1,
+  "title": "Bump requests from 2.2.1 to 2.20.0",
+  "parent": "65ea6ce9c923af1d9f3d67d2705f0e22bb6d0bed",
+  "date": "2019-10-04",
+  "merge": "1cd5b74435225481ab971e488b6c9ebad9dbae8f",
+  "files": [
+   "setup.py"
+  ],
+  "tests": 14,
+  "pyfiles": 43,
+  "sizeKB": 273,
+  "stars": 1
+ },
+ {
+  "repo": "PostmonAPI/postmon-python",
+  "pr": 12,
+  "title": "Bump requests from 2.2.1 to 2.20.0",
+  "parent": "bfd3a38a8aec5e069536a0bc36440946d1981e37",
+  "date": "2019-08-20",
+  "merge": "f226866622040ee03f8a73abfdcb847abbc316de",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 4,
+  "sizeKB": 22,
+  "stars": 5
+ },
+ {
+  "repo": "Atihinen/ObjectToMap",
+  "pr": 5,
+  "title": "Bump requests from 2.2.1 to 2.20.0",
+  "parent": "c37083885650e76e3dea6eff509d1666e48a879f",
+  "date": "2020-07-09",
+  "merge": "0c5835fd33a3292c4d3d7abe36ab47db75984f6e",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 4,
+  "pyfiles": 16,
+  "sizeKB": 60,
+  "stars": 0
+ },
+ {
+  "repo": "tzmfreedom/et-cli",
+  "pr": 1,
+  "title": "Bump requests from 2.2.1 to 2.20.0",
+  "parent": "41d241285ed0f6c4ddfb713fddf33209d901a340",
+  "date": "2019-11-10",
+  "merge": "ed6a9a9b0d29e1c2c5076e156c49298201d3a298",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 2,
+  "pyfiles": 7,
+  "sizeKB": 30,
+  "stars": 1
+ },
+ {
+  "repo": "p-lr/KivyTrek",
+  "pr": 6,
+  "title": "Bump requests from 2.2.1 to 2.20.0",
+  "parent": "c9be403dc0773fe9a5290b7f73cf2ee1e10b552c",
+  "date": "2019-10-23",
+  "merge": "a4228a3db51e68a6e31be72d4e4520e352453256",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 42,
+  "sizeKB": 2152,
+  "stars": 3
+ },
+ {
+  "repo": "MaAbbasi96/Penguin-Backend",
+  "pr": 2,
+  "title": "added api tests",
+  "parent": "a534a3b9d8d2cf0a1015f16a19e4e0894220e7ca",
+  "date": "2018-12-24",
+  "merge": "d0d4f39568431af62c5b8bf472b8164717492bd0",
+  "files": [
+   "Polling/services.py",
+   "Polling/tests/test_views/test_poll_management_view.py",
+   "Polling/tests/test_views/test_poll_participation_view.py",
+   "Polling/views.py"
+  ],
+  "tests": 3,
+  "pyfiles": 26,
+  "sizeKB": 63,
+  "stars": 1
+ },
+ {
+  "repo": "funkaoshi/osr-opml",
+  "pr": 4,
+  "title": "Bump lxml from 4.9.3 to 6.1.0",
+  "parent": "cca4e9addaeaec4a809ce360c420f3812e32a7ce",
+  "date": "2026-08-25",
+  "merge": "cb928284f97a745aa5335018cd87f7af161d3d26",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 2,
+  "sizeKB": 321,
+  "stars": 11
+ },
+ {
+  "repo": "L1nf3ng/WHorse",
+  "pr": 4,
+  "title": "Bump lxml from 4.5.0 to 4.9.1",
+  "parent": "7354f5452b91e1d0f736f73e40377b93d67aa05f",
+  "date": "2025-12-18",
+  "merge": "3f57c5df99d58f908848b4a2d311f4c61847099e",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 6,
+  "pyfiles": 22,
+  "sizeKB": 515,
+  "stars": 5
+ },
+ {
+  "repo": "apqlzm/scraposer",
+  "pr": 4,
+  "title": "Bump lxml from 4.6.5 to 4.9.1",
+  "parent": "6f0d25b004e880946c95297cd2a8cee3a77585c2",
+  "date": "2022-12-04",
+  "merge": "81fe6ecfc059c52d26808a960778610632afe5d7",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 2,
+  "pyfiles": 10,
+  "sizeKB": 27,
+  "stars": 2
+ },
+ {
+  "repo": "joseruizeun/codeql",
+  "pr": 5,
+  "title": "Bump flask from 0.12.2 to 3.1.3",
+  "parent": "09ddc50e33e3dd636a93a7e963bf89f3e2b7ac12",
+  "date": "2026-08-26",
+  "merge": "715389616a79ff62de3eb311bd86cdd7ba818f2b",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 1,
+  "sizeKB": 36,
+  "stars": 0
+ },
+ {
+  "repo": "joseruizeun/codeql",
+  "pr": 3,
+  "title": "Bump flask from 0.12.2 to 3.1.3",
+  "parent": "d837f2169969141f65d47a501e0bd3c1f2641187",
+  "date": "2026-08-26",
+  "merge": "aec844be75572c5c6a09d90c6e007cf35151e5df",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 1,
+  "sizeKB": 36,
+  "stars": 0
+ },
+ {
+  "repo": "akvara/svoris",
+  "pr": 9,
+  "title": "Bump flask from 0.12.2 to 1.0 in /backend",
+  "parent": "230a75da1b12463b68d6e0711350bd55189ad35e",
+  "date": "2026-07-26",
+  "merge": "0487718c7ddfc230bbf8b8a69e2cc177e3462f99",
+  "files": [
+   "backend/requirements.txt"
+  ],
+  "tests": 2,
+  "pyfiles": 16,
+  "sizeKB": 1946,
+  "stars": 0
+ },
+ {
+  "repo": "martsa1/photo-organiser",
+  "pr": 2,
+  "title": "Bump cryptography from 2.9 to 43.0.3",
+  "parent": "3510b3041ac5c81c274b501358eca535cb8a8828",
+  "date": "2024-12-08",
+  "merge": "0e31254ce66a51dd32f00433f69a08b45e00c22f",
+  "files": [
+   "poetry.lock"
+  ],
+  "tests": 3,
+  "pyfiles": 16,
+  "sizeKB": 188,
+  "stars": 0
+ },
+ {
+  "repo": "abn/cafeteria",
+  "pr": 185,
+  "title": "chore(main): release 1.0.0",
+  "parent": "96726644fa86441b37d354c588699e7e20cbd811",
+  "date": "2026-08-25",
+  "merge": "b4f494fd735bd968e6ffd9710e482327007de772",
+  "files": [
+   ".release-please-manifest.json",
+   "CHANGELOG.md",
+   "pyproject.toml"
+  ],
+  "tests": 7,
+  "pyfiles": 25,
+  "sizeKB": 330,
+  "stars": 4
+ },
+ {
+  "repo": "jstutters/toolaudit",
+  "pr": 2,
+  "title": "Bump pyyaml from 5.1 to 5.4",
+  "parent": "3bc9dbd8ac71600df741b68d92b473e0ae6577d0",
+  "date": "2026-08-27",
+  "merge": "5c469bb9c31d063d11ae81bf6f7b921aa3d7d13a",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 3,
+  "pyfiles": 10,
+  "sizeKB": 79,
+  "stars": 1
+ },
+ {
+  "repo": "Modulus/Aineko",
+  "pr": 5,
+  "title": "Bump pyyaml from 5.1.1 to 5.4",
+  "parent": "e925ba118bcbca6064fd2c82dfb199ede84db453",
+  "date": "2026-08-26",
+  "merge": "57e3dbf1b871281df037897416a97fae2c9a7cea",
+  "files": [
+   "Pipfile.lock"
+  ],
+  "tests": 16,
+  "pyfiles": 24,
+  "sizeKB": 204,
+  "stars": 0
+ },
+ {
+  "repo": "apuignav/expense-bot",
+  "pr": 1,
+  "title": "Bump PyYAML from 5.1.2 to 6.0.1",
+  "parent": "58e11511fa0d9cb402b0ffd64a756b028b2340e0",
+  "date": "2026-08-26",
+  "merge": "70b14c58d346e6c95093004da13b9fc472356186",
+  "files": [
+   "setup.py"
+  ],
+  "tests": 4,
+  "pyfiles": 11,
+  "sizeKB": 107,
+  "stars": 1
+ },
+ {
+  "repo": "ryanyuan/sql-json-extract",
+  "pr": 1,
+  "title": "Bump pyyaml from 5.1.1 to 5.4",
+  "parent": "8f61f8e5de7da85c379059e8cbe0b896a01beb47",
+  "date": "2026-07-25",
+  "merge": "3714bfe57906436339928bb583f2b552acb73679",
+  "files": [
+   "setup.py"
+  ],
+  "tests": 2,
+  "pyfiles": 6,
+  "sizeKB": 10,
+  "stars": 0
+ },
+ {
+  "repo": "sdague/arwn",
+  "pr": 7,
+  "title": "Bump pyyaml from 5.1 to 5.4",
+  "parent": "c69c34cb8c1a7e97beac05c8f6fbefe528047570",
+  "date": "2026-04-25",
+  "merge": "f3eb80af7a10da624e13a0f3bc604bc2557ada1d",
+  "files": [],
+  "tests": 6,
+  "pyfiles": 18,
+  "sizeKB": 373,
+  "stars": 32
+ },
+ {
+  "repo": "asafsilman/testbuilder",
+  "pr": 30,
+  "title": "Bump pyyaml from 5.1 to 5.4",
+  "parent": "ccfc5ddf4d444a88655abda2d64e1de28dadaa02",
+  "date": "2026-03-17",
+  "merge": "7daefdd76866982c0087a365b62cbca669f93c77",
+  "files": [
+   "requirements.txt",
+   "setup.py"
+  ],
+  "tests": 33,
+  "pyfiles": 67,
+  "sizeKB": 576,
+  "stars": 2
+ },
+ {
+  "repo": "sbischoff-ai/pygase",
+  "pr": 12,
+  "title": "Bump pyyaml from 5.1 to 5.4",
+  "parent": "1d8b55a871393b69adea97709ebb4f01496bab0a",
+  "date": "2026-03-08",
+  "merge": "c86a33ce8e4c0de44a746bd960f228f180b2516c",
+  "files": [
+   "poetry.lock"
+  ],
+  "tests": 8,
+  "pyfiles": 17,
+  "sizeKB": 1705,
+  "stars": 47
+ },
+ {
+  "repo": "arielszabo/FindMeMoreLike",
+  "pr": 9,
+  "title": "Bump pyyaml from 5.1.2 to 5.4",
+  "parent": "2da76726300dca2f6bb9748325c6afa460cd3ec9",
+  "date": "2025-09-12",
+  "merge": "32a774c2725baaa97e7eafa907f755a6662668c2",
+  "files": [],
+  "tests": 36,
+  "pyfiles": 20,
+  "sizeKB": 3744,
+  "stars": 0
+ },
+ {
+  "repo": "bigbag/hybrid-rsa-aes",
+  "pr": 5,
+  "title": "Bump cryptography from 3.3.1 to 3.4.4",
+  "parent": "b956a0bcf864ffb4b85556d549ca49114b068f7b",
+  "date": "2021-02-10",
+  "merge": "0172182c9fe45a9f960b9888864061349a6ffc8c",
+  "files": [
+   "setup.py"
+  ],
+  "tests": 2,
+  "pyfiles": 6,
+  "sizeKB": 136,
+  "stars": 1
+ },
+ {
+  "repo": "haney/python-ansel",
+  "pr": 5,
+  "title": "Fix distribution packaging errors",
+  "parent": "6174d3fe7d939d68693ab80cb65b4b49c63e71f5",
+  "date": "2018-12-31",
+  "merge": "acba51bb653aaa31c1364a70d63b95aeb906d84b",
+  "files": [
+   "HISTORY.rst",
+   "setup.py"
+  ],
+  "tests": 6,
+  "pyfiles": 15,
+  "sizeKB": 185,
+  "stars": 3
+ },
+ {
+  "repo": "jacquerie/github-compose",
+  "pr": 5,
+  "title": "cli: use cwd when looking for .env",
+  "parent": "962fc901f2c0ceed70f3b7fb00765806d9463f32",
+  "date": "2018-12-21",
+  "merge": "ee4e0cfa807f9c7fb7231ace5c8c5cedff67c5ea",
+  "files": [
+   "github_compose/cli.py"
+  ],
+  "tests": 6,
+  "pyfiles": 5,
+  "sizeKB": 27,
+  "stars": 1
+ },
+ {
+  "repo": "StackStorm-Exchange/stackstorm-nagios",
+  "pr": 5,
+  "title": "Linting fixes",
+  "parent": "fe2e6aad2fbb3aea820a7a9e573e72bc7d150b38",
+  "date": "2018-12-22",
+  "merge": "37773c9151d1af9b129f06e0acb5a060de6435d2",
+  "files": [
+   "CHANGES.md",
+   "etc/st2service_handler.py",
+   "pack.yaml",
+   "tests/test_nagios_handler.py"
+  ],
+  "tests": 1,
+  "pyfiles": 2,
+  "sizeKB": 79,
+  "stars": 6
+ },
+ {
+  "repo": "mariamiah/Containerization-With-Docker-Compose",
+  "pr": 2,
+  "title": "Bump jinja2 from 2.10 to 2.11.3 in /Server",
+  "parent": "1c17a29cc091e57e739c6084b81730610a4f1e46",
+  "date": "2025-12-01",
+  "merge": "5c26f8f2cc8f4c827ef98540621efae939f40e47",
+  "files": [
+   "Server/requirements.txt"
+  ],
+  "tests": 5,
+  "pyfiles": 22,
+  "sizeKB": 1464,
+  "stars": 0
+ },
+ {
+  "repo": "willu47/python-gantt",
+  "pr": 2,
+  "title": "Bump jinja2 from 2.8 to 2.11.3",
+  "parent": "e67b1674ee92715bd0c1f300452142a1f82c843d",
+  "date": "2025-03-13",
+  "merge": "e4c8c2eeb9639ff01385d0252ee7908ec04b0ca8",
+  "files": [
+   "requirements-dev.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 7,
+  "sizeKB": 214,
+  "stars": 1
+ },
+ {
+  "repo": "MattHealy/flask-skeleton",
+  "pr": 2,
+  "title": "Bump jinja2 from 2.10 to 2.11.3",
+  "parent": "7b6d9ddde6f53c7b74581377339618ce9ed8c425",
+  "date": "2025-01-21",
+  "merge": "e76535020fb46d5e9cdad7a85c247bb4984ac19a",
+  "files": [
+   "requirements-common.txt"
+  ],
+  "tests": 2,
+  "pyfiles": 10,
+  "sizeKB": 26,
+  "stars": 0
+ },
+ {
+  "repo": "martsa1/dnsmasq-viewer",
+  "pr": 2,
+  "title": "Bump jinja2 from 2.10.3 to 2.11.3 in /backend",
+  "parent": "841f352d4b11ec218f0cb6a943e1fb4311599d17",
+  "date": "2024-12-08",
+  "merge": "f180be32f7233e38a4206fa32e8fb5deffb95040",
+  "files": [
+   "backend/Pipfile.lock"
+  ],
+  "tests": 2,
+  "pyfiles": 11,
+  "sizeKB": 53,
+  "stars": 0
+ },
+ {
+  "repo": "Libra-code/Microservizio",
+  "pr": 2,
+  "title": "Bump jinja2 from 2.11.2 to 2.11.3 in /TEST_FINALE/books",
+  "parent": "b72acbe936aaaa83ea752af3fc6839ab813d2e72",
+  "date": "2022-02-10",
+  "merge": "09c40d39ca1db80bd9f7687fe090ab4a800feb7a",
+  "files": [
+   "TEST_FINALE/books/requirements.txt"
+  ],
+  "tests": 3,
+  "pyfiles": 7,
+  "sizeKB": 355,
+  "stars": 0
+ },
+ {
+  "repo": "andrewmarkallen/testdriven-flask-app",
+  "pr": 7,
+  "title": "Bump werkzeug from 0.16.0 to 3.1.9 in /services/users",
+  "parent": "d3d62027e2a756cac2fad2f5d625023c0afc2984",
+  "date": "2026-10-06",
+  "merge": "522988f017329da4a6ab884a84f8c9560b740c69",
+  "files": [
+   "services/users/requirements.txt"
+  ],
+  "tests": 4,
+  "pyfiles": 17,
+  "sizeKB": 244,
+  "stars": 0
+ },
+ {
+  "repo": "anath2/improvisor",
+  "pr": 3,
+  "title": "Bump werkzeug from 0.12.2 to 3.1.6",
+  "parent": "68327989b67d7f4ec7ee55d2a4c1ac2167b5a5f6",
+  "date": "2026-07-02",
+  "merge": "5fcabe770df2a50ff923c8795b312367ef893a6e",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 7,
+  "sizeKB": 2087,
+  "stars": 0
+ },
+ {
+  "repo": "gabicavalcante/flask-blueprint",
+  "pr": 1,
+  "title": "Bump werkzeug from 0.16.1 to 2.2.3",
+  "parent": "a1978b9c16886fa55d9a22f488627afae58ff001",
+  "date": "2026-08-12",
+  "merge": "44c5fba5ff2930b6a060142a0f7a1855ea5d1364",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 2,
+  "pyfiles": 23,
+  "sizeKB": 85,
+  "stars": 2
+ },
+ {
+  "repo": "ventor-tech/secure-sharing",
+  "pr": 4,
+  "title": "Bump werkzeug from 0.15.5 to 2.2.3",
+  "parent": "c8bfac42f1e7e62157da29e6ee1a84288c85a61f",
+  "date": "2026-08-06",
+  "merge": "7f70d77cd12e554722e965e6bf295d8847fb944d",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 6,
+  "pyfiles": 15,
+  "sizeKB": 245,
+  "stars": 3
+ },
+ {
+  "repo": "akvara/svoris",
+  "pr": 7,
+  "title": "Bump werkzeug from 0.12.2 to 0.15.3 in /backend",
+  "parent": "bdafcb69c95a7a351836ab9b20c2c4c2021bff92",
+  "date": "2026-07-26",
+  "merge": "9c7d59fd61175aa8d44bf3ec5ccb5a83073f7b42",
+  "files": [
+   "backend/requirements.txt"
+  ],
+  "tests": 2,
+  "pyfiles": 16,
+  "sizeKB": 1946,
+  "stars": 0
+ },
+ {
+  "repo": "drkostas/OnDemandMinecraft-Mirrored",
+  "pr": 9,
+  "title": "Bump werkzeug from 0.15.3 to 0.15.5",
+  "parent": "ce4d753f7829d772bf15f55fdbf9faea7ade61fd",
+  "date": "2026-06-29",
+  "merge": "b4e31d2b3d085d0fb3e4f0945cc0adfe97692b7f",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 10,
+  "pyfiles": 9,
+  "sizeKB": 188,
+  "stars": 13
+ },
+ {
+  "repo": "leigh-jewell/cmx-step-tracker",
+  "pr": 1,
+  "title": "Bump werkzeug from 0.12.2 to 0.15.3",
+  "parent": "eec6d54d9e7e96b1ac9d9b466e415dd102a8eebf",
+  "date": "2026-05-30",
+  "merge": "cc3188442af0d7d307cbad4cd0c7d9f5f3a45dc2",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 3,
+  "pyfiles": 15,
+  "sizeKB": 361,
+  "stars": 1
+ },
+ {
+  "repo": "ursais/odoo-template",
+  "pr": 74,
+  "title": "Bump werkzeug from 0.16.0 to 3.0.6 in /odoo/tests/locust",
+  "parent": "e51c3a16a30d799c2244cdc7b669c3afb04ba428",
+  "date": "2026-06-07",
+  "merge": "f4aa0636ebfb8fc1e021b012a49f32d35b26af52",
+  "files": [
+   "odoo/tests/locust/requirements.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 21,
+  "sizeKB": 420,
+  "stars": 17
+ },
+ {
+  "repo": "hetalb/github-docker-kubernetes",
+  "pr": 1,
+  "title": "Bump flask from 1.1.2 to 2.3.2",
+  "parent": "08be6bfc88f52e165d31f2ae43bfff2ed9822a4b",
+  "date": "2025-09-30",
+  "merge": "1d244cdc9e59b59e5522fe8cf96ec378e63b85c7",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 2,
+  "sizeKB": 11,
+  "stars": 0
+ },
+ {
+  "repo": "zniffur/check-rose",
+  "pr": 1,
+  "title": "Bump flask from 1.0.2 to 2.3.2",
+  "parent": "b337d35c9d2b68682b172e3e787abac9037b0210",
+  "date": "2025-08-05",
+  "merge": "d5e0b7c4edf788022ebd6fd752bf13c854da8ec0",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 3,
+  "sizeKB": 16,
+  "stars": 0
+ },
+ {
+  "repo": "BSAkash/ChatBot",
+  "pr": 1,
+  "title": "Bump flask from 1.1.1 to 2.3.2",
+  "parent": "f62e3bbd1754590f804f83d554b67d218f8def99",
+  "date": "2025-02-25",
+  "merge": "cf211166de56048a2bf8b350d5840a0e4ce4b168",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 6,
+  "sizeKB": 1810,
+  "stars": 1
+ },
+ {
+  "repo": "crs562/flask-app",
+  "pr": 1,
+  "title": "Bump flask from 1.0.2 to 2.3.2",
+  "parent": "7a7c14db7a3a1185cd93a9c9428371f49e585fc3",
+  "date": "2025-04-01",
+  "merge": "48a51aa717f18c0be10a34cea5fa7a3a2c9c23eb",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 2,
+  "sizeKB": 12,
+  "stars": 0
+ },
+ {
+  "repo": "davidn/dice-calculator",
+  "pr": 1,
+  "title": "Bump flask from 1.1.1 to 2.3.2",
+  "parent": "3585ba18e597cee42a25715c2d7555ce72d2c71d",
+  "date": "2024-04-16",
+  "merge": "82b9a8299fe9d63abaf3a07a884da1dddf6aeb75",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 4,
+  "pyfiles": 12,
+  "sizeKB": 217,
+  "stars": 0
+ },
+ {
+  "repo": "akosgarai/python-item-register",
+  "pr": 1,
+  "title": "Bump flask from 1.0.2 to 2.3.2",
+  "parent": "9209ccf905c269f85d14772f21f0b0cf8baaa6e3",
+  "date": "2023-05-02",
+  "merge": "fc308d03a4355e26454b4433a7522ffad4d782f3",
+  "files": [
+   "requirements.txt"
+  ],
+  "tests": 1,
+  "pyfiles": 4,
+  "sizeKB": 10,
+  "stars": 0
+ }
+]
