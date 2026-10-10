@@ -42,3 +42,8 @@ What changed (driven by the baseline trace): import graph -> only affected files
 - Baseline: session `baseline-1791636569`, trace `255ee8a85c19593e0312fbd6891f76fb` (56 steps, 46s). Screenshot: social/media/4-trace-baseline.jpg
 - Improved: session `improved-1791636695`, trace `d188c16c6b87dfdbe18a626b3a79b4bf` (16 steps, 15s). Screenshot: social/media/5a-trace-improved.jpg
 - Deep link: https://app.neatlogs.com/traces/<trace_id>?orgId=dac38424-2836-4527-95a0-ceea14b47efd&projectId=a2e32ac6-ebdc-429e-adbf-8235258a1776
+
+### Deployment (AWS, us-east-1)
+- Read-only dashboard served from EC2 `i-0ca61987b0c92f116` (t2.micro, Amazon Linux 2023, Hackathon_VPC public subnet, HTTP/80 only, no SSH key). Live at http://54.147.135.237/ (public IP is not an Elastic IP; it changes if the instance is stopped and started).
+- Booted from `deploy/user-data.sh`: clones this repo, installs `web/requirements.txt`, runs uvicorn under systemd. No secrets on the box; the agent runner (which uses the LiteLLM key) is NOT deployed.
+- The dashboard queries the public OSV.dev API (10-minute cache). Revenue-at-risk figures are demo inputs from `demo/shop/business.yaml`.
