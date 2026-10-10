@@ -1,6 +1,7 @@
 # X thread #1 — progress post (6 parts)
 
-Handles: @arithecfo is from cfo.ai's own site footer. @neatlogs and Entire's handle are NOT verified yet — confirm on X before posting (marked [VERIFY]).
+Handles verified on x.com: @neatlogs, @EntireHQ (NOT @entireio — that's a placeholder account), @arithecfo (cfo.ai).
+Official post to QUOTE for the final submission (not for these progress posts): @neatlogs, 8 Oct, "okay guys, the wait is finally over. there's only one track for #neatHack..." 
 neatlogs trace URLs need a login, so traces go up as screenshots. Don't tag judges unless you want to.
 
 ## 1/6   media: social/media/1-video.mp4
@@ -23,7 +24,7 @@ Then an agent fixes it: reads OSV advisories for the pinned packages, patches th
 On our demo shop, Jinja2 3.x removes `Markup`. A plain version bump breaks the build, so the agent has to fix the code too.
 
 ## 4/6   media: social/media/4-trace-baseline.jpg
-Run 1 was naive. Tracing it with @neatlogs [VERIFY] showed it re-listing and re-reading the same files for every package.
+Run 1 was naive. Tracing it with @neatlogs showed it re-listing and re-reading the same files for every package.
 
 19.7 LLM steps and 36 tool calls per run, about $0.20 (our estimate from token counts).
 
@@ -36,7 +37,7 @@ cost ~$0.199 → $0.041
 time 48s → 18.5s
 
 ## 6/6   media: none (repo link card)
-Stack: @neatlogs [VERIFY] for tracing, Entire [VERIFY @handle] for code context + checkpoints, @arithecfo for pricing and runway (in progress).
+Stack: @neatlogs for tracing, @EntireHQ for code context + checkpoints, @arithecfo for pricing and runway (in progress).
 
 Next: vendor-health signals via Crustdata, licence risk.
 
