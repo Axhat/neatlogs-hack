@@ -6,3 +6,4 @@ pyyaml
 httpx
 pytest
 python-dotenv
+packaging
