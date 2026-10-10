@@ -1,5 +1,5 @@
 # X thread #1 (progress post) — attach video/out/intro.mp4 to post 1
-Replace [TRACE-LINK] with real neatlogs trace links after checking the dashboard. Tag the official accounts yourself.
+Replace [attach social/trace-baseline.jpg: 56 steps, 46s] with real neatlogs trace links after checking the dashboard. Tag the official accounts yourself.
 
 1/6
 Every company runs on software it didn't write.
@@ -22,7 +22,7 @@ On our demo shop: 3 vulnerable pins. One upgrade (Jinja2 3.x) breaks the build b
 
 4/6
 Run 1 was naive. We traced it with @neatlogs and saw it re-list and re-read the same files for every package: 19.7 LLM steps, 36 tool calls, ~$0.20 per run.
-[TRACE-LINK]
+[attach social/trace-baseline.jpg: 56 steps, 46s]
 
 5/6
 Fix, from the trace: use the import graph so the agent only gets affected files, one pass for all packages, cache repeated reads, re-scan OSV at the end.
@@ -37,5 +37,7 @@ time 48s → 18.5s
 6/6
 Built with neatlogs (tracing), Entire (code context + checkpoints), cfo.ai (pricing + runway).
 Next: vendor-health signals (Crustdata), licence risk, and a dashboard a non-engineer can read.
+
+After:  [attach social/trace-improved.jpg: 16 steps, 15s]
 
 Repo: https://github.com/Axhat/neatlogs-hack
