@@ -1,0 +1,7 @@
+1 2 and no need of failure recovery 
+
+demo video at last 
+
+think of running this thing over existing OSS maybe small one for some replaying of the commits with vulnenrability and fixing this 
+
+is the deployment completed or not for AWS where is the url i can access it through
