@@ -47,3 +47,9 @@ What changed (driven by the baseline trace): import graph -> only affected files
 - Read-only dashboard served from EC2 `i-0ca61987b0c92f116` (t2.micro, Amazon Linux 2023, Hackathon_VPC public subnet, HTTP/80 only, no SSH key). Live at http://54.147.135.237/ (public IP is not an Elastic IP; it changes if the instance is stopped and started).
 - Booted from `deploy/user-data.sh`: clones this repo, installs `web/requirements.txt`, runs uvicorn under systemd. No secrets on the box; the agent runner (which uses the LiteLLM key) is NOT deployed.
 - The dashboard queries the public OSV.dev API (10-minute cache). Revenue-at-risk figures are demo inputs from `demo/shop/business.yaml`.
+
+### Entire proof
+- Repo mirrored on Entire (GitHub App installed on this repo only). Public, no login needed.
+- Checkpoint link: https://entire.io/gh/Axhat/neatlogs-hack/commit/a50363dd0691b008d1ecc9966c9152cd93948c3b
+- Checkpoint ID: `01M4JYYTA9J94PDTA97JDYS36X` (session: "push it and get the trace links", Claude Code)
+- Entire features used: Checkpoints (all commits). Graph/Brain not yet used; our dependency graph is a custom import scanner.
