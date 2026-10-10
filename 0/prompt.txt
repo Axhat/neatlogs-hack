@@ -1,0 +1,35 @@
+Didn't i sign in with entire already?
+
+---
+
+what does even entire do
+
+---
+
+and also write a small write up for our project and follow up as a feedback
+
+---
+
+* Website, in the Chrome I drive: entire.io shows a “Log in” button, so that session isn’t signed in. It would only count if you signed in somewhere else.
+* CLI: `entire auth status` says “Not logged in”, and `entire auth contexts` shows no saved logins.
+* What does work without a login: `entire enable` and the checkpoints. They’re stored in the repo itself and pushed to GitHub (`refs/entire/checkpoints/…`). That’s why the CLI looked fine, but those checkpoints aren’t visible on the web without a login.
+
+
+
+Let's do this so that we dont we miss it in the showing of our project
+
+---
+
+and remove the account that is not in i am solo on my team
+
+---
+
+where is the tab present for this entire this
+
+---
+
+authorized, check the CLI login now
+
+---
+
+verified, continue with the import
