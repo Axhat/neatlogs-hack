@@ -1,0 +1,37 @@
+{
+  "cli_version": "0.11.4",
+  "checkpoint_id": "01M4K6E8YHMCEYYN542GJ513X7",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "agent/graph.py",
+    "social/media/1-video.mp4",
+    "social/media/2a-dashboard-before.jpg",
+    "social/media/2b-dashboard-after.jpg",
+    "social/media/4-trace-baseline.jpg",
+    "social/media/5a-trace-improved.jpg",
+    "social/media/5b-results-bars.png",
+    "social/trace-baseline.jpg",
+    "social/trace-improved.jpg",
+    "social/x-thread-1.md",
+    "web/app.py",
+    "web/static/index.html"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 24,
+    "cache_creation_tokens": 20430,
+    "cache_read_tokens": 2622420,
+    "output_tokens": 8232,
+    "api_call_count": 12
+  }
+}

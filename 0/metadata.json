@@ -1,0 +1,60 @@
+{
+  "cli_version": "0.11.4",
+  "checkpoint_id": "01M4K6E8YHMCEYYN542GJ513X7",
+  "session_id": "12a15525-4067-4122-b427-591881a93e11",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-10T15:20:58.424639Z",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "agent/graph.py",
+    "social/media/1-video.mp4",
+    "social/media/2a-dashboard-before.jpg",
+    "social/media/2b-dashboard-after.jpg",
+    "social/media/4-trace-baseline.jpg",
+    "social/media/5a-trace-improved.jpg",
+    "social/media/5b-results-bars.png",
+    "social/trace-baseline.jpg",
+    "social/trace-improved.jpg",
+    "social/x-thread-1.md",
+    "web/app.py",
+    "web/static/index.html"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5-5",
+  "turn_id": "ece669fbca8a",
+  "checkpoint_transcript_start": 727,
+  "transcript_lines_at_start": 727,
+  "compact_transcript_start": 122,
+  "token_usage": {
+    "input_tokens": 24,
+    "cache_creation_tokens": 20430,
+    "cache_read_tokens": 2622420,
+    "output_tokens": 8232,
+    "api_call_count": 12
+  },
+  "session_metrics": {
+    "turn_count": 12
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-10-10T15:20:58.343696Z",
+    "agent_lines": 34,
+    "agent_removed": 31,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 34,
+    "total_lines_changed": 65,
+    "agent_percentage": 100,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0
+    }
+  ]
+}
