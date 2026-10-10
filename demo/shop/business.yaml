@@ -16,3 +16,5 @@ features:
 packages:
   Jinja2: {feature: receipts}
   requests: {feature: tax}
+  MarkupSafe: {parent: Jinja2}   # transitive: pulled in by Jinja2
+  urllib3: {parent: requests}    # transitive: pulled in by requests

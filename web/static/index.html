@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blast Radius</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.30.2/cytoscape.min.js"></script>
+<style>
+:root{--bg:#0b0f1a;--card:#131a2b;--ink:#e8ecf4;--dim:#8a94a8;--red:#ff4d5e;--green:#2fd27a;--blue:#5b8cff;--line:#232c45}
+@media (prefers-color-scheme:light){:root{--bg:#f5f7fb;--card:#fff;--ink:#101828;--dim:#667085;--line:#e4e7ec}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,-apple-system,Helvetica,Arial,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding:20px 24px}
+h1{margin:0;font-size:22px}.tag{color:var(--dim);font-size:13px}
+.toggle button{background:var(--card);color:var(--ink);border:1px solid var(--line);padding:8px 14px;cursor:pointer;font:inherit}
+.toggle button:first-child{border-radius:8px 0 0 8px}.toggle button:last-child{border-radius:0 8px 8px 0}.toggle button.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+main{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;padding:0 24px 24px}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+#cy{height:440px}.kpi{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px}.kpi div{flex:1;min-width:140px}
+.kpi b{display:block;font-size:28px}.red{color:var(--red)}.green{color:var(--green)}
+.f{border-top:1px solid var(--line);padding:12px 0}.f:first-of-type{border-top:0}.f h3{margin:0 0 4px;font-size:16px}
+.chip{display:inline-block;padding:2px 8px;border-radius:99px;background:var(--line);font-size:12px;color:var(--dim);margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}th:first-child,td:first-child{text-align:left}th{color:var(--dim);font-weight:500}
+.note{color:var(--dim);font-size:12px;margin-top:8px}
+</style></head><body>
+<header><div><h1>Blast Radius</h1><div class="tag">What a vulnerable dependency puts at risk, in business terms</div></div>
+<div class="toggle"><button id="b-before" class="on">Before fix</button><button id="b-after">After agent fix</button></div></header>
+<main>
+<section class="card"><div class="kpi"><div><span class="tag">Revenue at risk / day</span><b id="rev" class="red">–</b></div><div><span class="tag">Vulnerable packages</span><b id="nv">–</b></div></div><div id="cy"></div>
+<div class="note">Demo data. Revenue-at-risk figures come from a file the customer fills in (business.yaml), not from the code.</div></section>
+<section class="card"><h2 style="margin-top:0;font-size:17px">What needs attention</h2><div id="findings"></div></section>
+<section class="card" style="grid-column:1/-1"><h2 style="margin-top:0;font-size:17px">Agent runs (traced in neatlogs)</h2><div id="runs"></div></section>
+</main>
+<script>
+let cy,state='before';const $=id=>document.getElementById(id),usd=n=>'$'+(n||0).toLocaleString();
+async function load(){
+  const g=await (await fetch('/api/graph?state='+state)).json();
+  $('rev').textContent=usd(g.revenue_at_risk_per_day_usd);$('rev').className=g.revenue_at_risk_per_day_usd?'red':'green';
+  $('nv').textContent=g.findings.length;$('nv').className=g.findings.length?'red':'green';
+  const css=getComputedStyle(document.documentElement),c=n=>css.getPropertyValue(n).trim();
+  cy&&cy.destroy();
+  cy=cytoscape({container:$('cy'),elements:[...g.nodes,...g.edges],layout:{name:'breadthfirst',roots:'#app',directed:true,padding:20,spacingFactor:1.1},
+   style:[{selector:'node',style:{label:'data(label)','font-size':11,color:c('--ink'),'text-valign':'bottom','text-margin-y':6,'background-color':c('--blue'),width:26,height:26}},
+   {selector:'node[kind="app"]',style:{width:38,height:38}},{selector:'node[status="vulnerable"]',style:{'background-color':c('--red'),width:34,height:34}},
+   {selector:'node[status="ok"]',style:{'background-color':c('--green')}},{selector:'edge',style:{width:2,'line-color':c('--line')}}]});
+  $('findings').innerHTML=g.findings.length?g.findings.map(f=>`<div class="f"><h3>${f.package} ${f.version} <span class="red">→ ${f.target}</span></h3>
+   <div><span class="chip">${f.advisories} advisories</span><span class="chip">${f.feature}</span><span class="chip">owner: ${f.owner}</span></div>
+   <div style="margin-top:6px">${f.revenue_at_risk_per_day_usd?`<b class="red">${usd(f.revenue_at_risk_per_day_usd)}/day</b> at risk if this feature fails. `:''}Used in: ${f.files.join(', ')||'indirect'}.</div>
+   <div class="tag" style="margin-top:4px">${f.examples.join(' · ')}</div></div>`).join(''):'<div class="green"><b>All clear.</b> No known vulnerabilities in the pinned packages.</div>';
+  const r=await (await fetch('/api/runs')).json();
+  const by={};r.forEach(x=>(by[x.label]??=[]).push(x));const avg=(a,k)=>a.reduce((s,x)=>s+x[k],0)/a.length;
+  const rows=Object.entries(by).map(([l,a])=>`<tr><td>${l} (n=${a.length})</td><td>${avg(a,'steps').toFixed(1)}</td><td>${avg(a,'tool_calls').toFixed(1)}</td><td>${Math.round(avg(a,'tokens_in')).toLocaleString()}</td><td>$${avg(a,'cost_usd_est').toFixed(3)}</td><td>${avg(a,'seconds').toFixed(1)}s</td><td>${a.every(x=>x.tests_pass)?'pass':'FAIL'}</td></tr>`).join('');
+  $('runs').innerHTML=`<table><tr><th>Run</th><th>LLM steps</th><th>Tool calls</th><th>Input tokens</th><th>Est. cost</th><th>Time</th><th>Tests</th></tr>${rows}</table><div class="note">Cost is an estimate from token counts and assumed prices.</div>`;
+}
+for(const s of ['before','after'])$('b-'+s).onclick=()=>{state=s;$('b-before').classList.toggle('on',s==='before');$('b-after').classList.toggle('on',s==='after');load()};
+load();
+</script></body></html>

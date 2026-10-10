@@ -1,0 +1,1 @@
+{ "version": "0.0.1", "configurations": [ { "name": "blast-radius-web", "runtimeExecutable": ".venv/bin/uvicorn", "runtimeArgs": ["web.app:app", "--port", "8765"], "port": 8765 } ] }

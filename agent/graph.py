@@ -42,5 +42,6 @@ def build(root, pins):
         feature = (biz.get("packages", {}).get(pkg) or {}).get("feature")
         finfo = (biz.get("features", {}) or {}).get(feature, {})
         graph[pkg] = {"version": ver, "files": pkg_files[pkg], "feature": feature,
-                      "revenue_at_risk_per_day_usd": finfo.get("revenue_at_risk_per_day_usd"), "owner": finfo.get("owner")}
+                      "revenue_at_risk_per_day_usd": finfo.get("revenue_at_risk_per_day_usd"), "owner": finfo.get("owner"),
+                      "parent": (biz.get("packages", {}).get(pkg) or {}).get("parent")}
     return graph
