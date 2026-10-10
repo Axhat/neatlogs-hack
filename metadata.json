@@ -1,0 +1,35 @@
+{
+  "cli_version": "0.11.4",
+  "checkpoint_id": "01M4JY2BBE312V3NNASWK6404N",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "agent/fixer.py",
+    "agent/graph.py",
+    "agent/run.py",
+    "agent/tools.py",
+    "data/runs/baseline-1791636722.json",
+    "data/runs/baseline-1791636795.json",
+    "data/runs/improved-1791636695.json",
+    "data/runs/improved-1791636773.json",
+    "data/runs/improved-1791636850.json",
+    "hackathon.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 8,
+    "cache_creation_tokens": 6021,
+    "cache_read_tokens": 616246,
+    "output_tokens": 5588,
+    "api_call_count": 4
+  }
+}
