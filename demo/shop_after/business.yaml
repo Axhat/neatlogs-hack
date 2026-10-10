@@ -1,0 +1,18 @@
+# Customer-supplied business context. Blast Radius maps code -> features -> revenue using this file.
+company: Mugly (demo e-commerce store)
+features:
+  checkout:
+    modules: [shop/checkout.py]
+    revenue_at_risk_per_day_usd: 12000
+    owner: Head of Product
+  receipts:
+    modules: [shop/render.py]
+    revenue_at_risk_per_day_usd: 1500   # confirmation emails -> support load / chargebacks
+    owner: Customer Support Lead
+  tax:
+    modules: [shop/tax.py]
+    revenue_at_risk_per_day_usd: 12000
+    owner: Finance Lead
+packages:
+  Jinja2: {feature: receipts}
+  requests: {feature: tax}

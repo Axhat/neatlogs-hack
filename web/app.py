@@ -1,5 +1,6 @@
 """Blast Radius dashboard: the dependency graph in business terms, for non-engineers."""
 import json
+import time
 from pathlib import Path
 
 import yaml
@@ -14,7 +15,19 @@ load_dotenv(ROOT / ".env")
 from agent import graph as depgraph, osv  # noqa: E402
 
 app = FastAPI(title="Blast Radius")
-SRC = {"before": ROOT / "demo/shop", "after": ROOT / "data/workdir/shop"}
+SRC = {"before": ROOT / "demo/shop", "after": ROOT / "demo/shop_after"}  # after = snapshot of the agent-fixed shop
+
+_CACHE = {}
+
+
+def cached_scan(reqs, ttl=600):
+    """OSV lookups are cached so a public page does not hit the API on every view."""
+    hit = _CACHE.get(reqs)
+    if hit and time.time() - hit[0] < ttl:
+        return hit[1]
+    res = osv.scan(reqs)
+    _CACHE[reqs] = (time.time(), res)
+    return res
 
 
 def snapshot(state):
@@ -24,7 +37,7 @@ def snapshot(state):
     reqs = (root / "requirements.txt").read_text()
     pins = osv.parse_pins(reqs)
     g = depgraph.build(root, pins, business_path=SRC["before"] / "business.yaml")
-    vulns = {f["package"]: f for f in osv.scan(reqs)}
+    vulns = {f["package"]: f for f in cached_scan(reqs)}
     biz = yaml.safe_load((SRC["before"] / "business.yaml").read_text())
     nodes, edges, findings = [{"data": {"id": "app", "label": biz["company"].split(" (")[0], "kind": "app"}}], [], []
     for fid, feat in biz["features"].items():
