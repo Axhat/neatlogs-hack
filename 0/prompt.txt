@@ -1,0 +1,28 @@
+<pasted_content id="cfce">
+IAM username
+hackathon-user-028
+Console password
+K4M!@=vm=Aqyk!xb
+</pasted_content id="cfce">
+
+here you go
+
+---
+
+add related tags from twitter as well logged into AWS console you can use that now
+
+---
+
+also check from the context as to which region we got credits for on AWS
+
+---
+
+1 and then 2 and also tell me is the 25$ enough for this project to be deployed and run
+
+---
+
+AWS credits are us-east-1 (N. Virginia) only it's fine we would deploy it here only
+
+---
+
+go on deploy this
