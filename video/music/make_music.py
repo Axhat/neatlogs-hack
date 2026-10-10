@@ -2,7 +2,8 @@
 import wave
 import numpy as np
 
-SR, DUR, BPM = 44100, 25.0, 128
+import os
+SR, DUR, BPM = 44100, float(os.environ.get("DUR", 25.0)), 128
 BEAT = 60 / BPM
 N = int(SR * DUR)
 t = np.arange(N) / SR
@@ -70,7 +71,7 @@ for s in np.arange(4.0, DUR - 1.5, BEAT / 2):
 # --- arpeggio (16ths, 8.0s -> 22.0s)
 arp = np.zeros(N)
 step = BEAT / 4
-for j, s in enumerate(np.arange(8.0, 22.0, step)):
+for j, s in enumerate(np.arange(8.0, DUR - 3.0, step)):
     tri = chords[int(s // CHORD_LEN) % 4][1]
     f = [tri[0], tri[1], tri[2], tri[1] * 2, tri[2], tri[1], tri[0] * 2, tri[1]][j % 8] * 2
     at = np.arange(int(step * 1.6 * SR)) / SR
@@ -87,15 +88,15 @@ for s in kick_times:
 
 mix = pad * duck + arp * duck + kick + hat + bass
 # riser into the final scene (noise sweep 18.5 -> 20.0s)
-ri = (t >= 18.5) & (t < 20.0)
-mix[ri] += np.diff(rng.standard_normal(N + 1))[ri] * ((t[ri] - 18.5) / 1.5) ** 2 * 0.05
+ri = (t >= DUR - 6.5) & (t < DUR - 5.0)
+mix[ri] += np.diff(rng.standard_normal(N + 1))[ri] * ((t[ri] - (DUR - 6.5)) / 1.5) ** 2 * 0.05
 
 fade = np.minimum(t / 0.6, 1) * np.minimum((DUR - t) / 2.0, 1)
 mix *= fade
 mix = np.tanh(mix * 1.4)
 mix = mix / np.abs(mix).max() * 0.7  # ~ -3 dBFS
 stereo = np.stack([mix, np.roll(mix, 40)], axis=1)  # tiny Haas width
-with wave.open("video/out/music.wav", "wb") as w:
+with wave.open(os.environ.get("OUT", "video/out/music.wav"), "wb") as w:
     w.setnchannels(2)
     w.setsampwidth(2)
     w.setframerate(SR)
