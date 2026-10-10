@@ -1,43 +1,44 @@
-# X thread #1 (progress post) — attach video/out/intro.mp4 to post 1
-Replace [attach social/trace-baseline.jpg: 56 steps, 46s] with real neatlogs trace links after checking the dashboard. Tag the official accounts yourself.
+# X thread #1 — progress post (6 parts)
 
-1/6
+Handles: @arithecfo is from cfo.ai's own site footer. @neatlogs and Entire's handle are NOT verified yet — confirm on X before posting (marked [VERIFY]).
+neatlogs trace URLs need a login, so traces go up as screenshots. Don't tag judges unless you want to.
+
+## 1/6   media: social/media/1-video.mp4
 Every company runs on software it didn't write.
 
-When a dependency turns out to be vulnerable, who finds out what breaks, who owns it, and what it costs?
+When a dependency turns out to be vulnerable, who works out what breaks, who owns it, and what it costs?
 
-We're building Blast Radius for #neatHack 🧵
-[attach intro.mp4]
+Building Blast Radius for #neatHack 🧵
 
-2/6
-Blast Radius builds a live map: code → packages → features → revenue.
+## 2/6   media: social/media/2a-dashboard-before.jpg, 2b-dashboard-after.jpg
+Blast Radius maps code → packages → features → revenue.
 
-A vulnerable package isn't "CVE-2020-xxxx". It's "receipts, $1.5k/day, owner: Support".
-(Demo data; revenue figures come from a file the customer fills in.)
+So a vulnerable package isn't "10 advisories". It's "receipts, $1.5k/day, owner: Support".
 
-3/6
-Then an agent fixes it. It reads OSV advisories for the pinned packages, patches the code, installs, runs tests, retries.
+(Demo data. Revenue figures come from a file the customer fills in.)
 
-On our demo shop: 3 vulnerable pins. One upgrade (Jinja2 3.x) breaks the build because `Markup` moved to markupsafe. The agent has to fix the code, not just bump a version.
+## 3/6   media: none
+Then an agent fixes it: reads OSV advisories for the pinned packages, patches the code, installs, runs tests, retries.
 
-4/6
-Run 1 was naive. We traced it with @neatlogs and saw it re-list and re-read the same files for every package: 19.7 LLM steps, 36 tool calls, ~$0.20 per run.
-[attach social/trace-baseline.jpg: 56 steps, 46s]
+On our demo shop, Jinja2 3.x removes `Markup`. A plain version bump breaks the build, so the agent has to fix the code too.
 
-5/6
-Fix, from the trace: use the import graph so the agent only gets affected files, one pass for all packages, cache repeated reads, re-scan OSV at the end.
+## 4/6   media: social/media/4-trace-baseline.jpg
+Run 1 was naive. Tracing it with @neatlogs [VERIFY] showed it re-listing and re-reading the same files for every package.
 
-Same task, 3 runs each, tests pass 3/3 on both:
-steps 19.7 → 4.3 (-78%)
-tool calls 36.3 → 5.3 (-85%)
-est. cost $0.199 → $0.041 (-79%)
+19.7 LLM steps and 36 tool calls per run, about $0.20 (our estimate from token counts).
+
+## 5/6   media: social/media/5a-trace-improved.jpg, 5b-results-bars.png
+Fix, straight from the trace: give the agent only the files that import the package, fix all packages in one pass, cache repeat reads, re-scan OSV at the end.
+
+3 runs each, tests pass 3/3 on both:
+steps 19.7 → 4.3
+cost ~$0.199 → $0.041
 time 48s → 18.5s
-(cost = our price estimate, not billing)
 
-6/6
-Built with neatlogs (tracing), Entire (code context + checkpoints), cfo.ai (pricing + runway).
-Next: vendor-health signals (Crustdata), licence risk, and a dashboard a non-engineer can read.
+## 6/6   media: none (repo link card)
+Stack: @neatlogs [VERIFY] for tracing, Entire [VERIFY @handle] for code context + checkpoints, @arithecfo for pricing and runway (in progress).
 
-After:  [attach social/trace-improved.jpg: 16 steps, 15s]
+Next: vendor-health signals via Crustdata, licence risk.
 
 Repo: https://github.com/Axhat/neatlogs-hack
+#neatHack

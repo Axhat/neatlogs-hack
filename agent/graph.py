@@ -22,7 +22,7 @@ def imports_of(path: Path):
     return mods
 
 
-def build(root, pins):
+def build(root, pins, business_path=None):
     """Return {package: {'version', 'files': [...]}} for pinned packages, plus business info if present."""
     root = Path(root)
     pkg_files = {p: [] for p in pins}
@@ -34,7 +34,7 @@ def build(root, pins):
             if pkg in pkg_files:
                 pkg_files[pkg].append(str(f.relative_to(root)))
     biz = {}
-    by = root / "business.yaml"
+    by = Path(business_path) if business_path else root / "business.yaml"
     if by.exists():
         biz = yaml.safe_load(by.read_text()) or {}
     graph = {}

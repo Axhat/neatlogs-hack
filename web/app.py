@@ -23,7 +23,7 @@ def snapshot(state):
         root = SRC["before"]
     reqs = (root / "requirements.txt").read_text()
     pins = osv.parse_pins(reqs)
-    g = depgraph.build(root, pins)
+    g = depgraph.build(root, pins, business_path=SRC["before"] / "business.yaml")
     vulns = {f["package"]: f for f in osv.scan(reqs)}
     biz = yaml.safe_load((SRC["before"] / "business.yaml").read_text())
     nodes, edges, findings = [{"data": {"id": "app", "label": biz["company"].split(" (")[0], "kind": "app"}}], [], []

@@ -28,9 +28,11 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:right;
 <section class="card" style="grid-column:1/-1"><h2 style="margin-top:0;font-size:17px">Agent runs (traced in neatlogs)</h2><div id="runs"></div></section>
 </main>
 <script>
-let cy,state='before';const $=id=>document.getElementById(id),usd=n=>'$'+(n||0).toLocaleString();
+let cy,state='before',seq=0;const $=id=>document.getElementById(id),usd=n=>'$'+(n||0).toLocaleString();
 async function load(){
+  const my=++seq;
   const g=await (await fetch('/api/graph?state='+state)).json();
+  if(my!==seq)return;
   $('rev').textContent=usd(g.revenue_at_risk_per_day_usd);$('rev').className=g.revenue_at_risk_per_day_usd?'red':'green';
   $('nv').textContent=g.findings.length;$('nv').className=g.findings.length?'red':'green';
   const css=getComputedStyle(document.documentElement),c=n=>css.getPropertyValue(n).trim();
