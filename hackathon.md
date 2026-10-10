@@ -39,6 +39,6 @@ See PLAN.md.
 What changed (driven by the baseline trace): import graph -> only affected files given up front; all packages fixed in one loop with shared context; read cache; independent OSV re-scan after the run. Evidence: data/runs/baseline-*.json, data/runs/improved-*.json, neatlogs sessions tagged `baseline` / `improved`.
 
 ### Trace evidence (neatlogs, project "Akshat's project", login required)
-- Baseline: session `baseline-1791636569`, trace `255ee8a85c19593e0312fbd6891f76fb` (56 steps, 46s). Screenshot: social/trace-baseline.jpg
-- Improved: session `improved-1791636695`, trace `d188c16c6b87dfdbe18a626b3a79b4bf` (16 steps, 15s). Screenshot: social/trace-improved.jpg
+- Baseline: session `baseline-1791636569`, trace `255ee8a85c19593e0312fbd6891f76fb` (56 steps, 46s). Screenshot: social/media/4-trace-baseline.jpg
+- Improved: session `improved-1791636695`, trace `d188c16c6b87dfdbe18a626b3a79b4bf` (16 steps, 15s). Screenshot: social/media/5a-trace-improved.jpg
 - Deep link: https://app.neatlogs.com/traces/<trace_id>?orgId=dac38424-2836-4527-95a0-ceea14b47efd&projectId=a2e32ac6-ebdc-429e-adbf-8235258a1776
