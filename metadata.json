@@ -1,0 +1,34 @@
+{
+  "cli_version": "0.11.4",
+  "checkpoint_id": "01M4JXPDK24VG9EN2X1YVQKZWD",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "demo/shop/business.yaml",
+    "demo/shop/requirements.txt",
+    "demo/shop/scripts/reset.sh",
+    "demo/shop/shop/__init__.py",
+    "demo/shop/shop/checkout.py",
+    "demo/shop/shop/render.py",
+    "demo/shop/shop/tax.py",
+    "demo/shop/tests/conftest.py",
+    "demo/shop/tests/test_shop.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 12,
+    "cache_creation_tokens": 8249,
+    "cache_read_tokens": 807588,
+    "output_tokens": 6214,
+    "api_call_count": 6
+  }
+}
