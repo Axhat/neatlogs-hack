@@ -1,0 +1,48 @@
+{
+  "cli_version": "0.11.4",
+  "checkpoint_id": "01M4KG99V1FTS3YRWQQS05MKT7",
+  "session_id": "12a15525-4067-4122-b427-591881a93e11",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-10T18:13:02.001479Z",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "video/music/make_music.py",
+    "video/public/cfo-plan.jpg",
+    "video/public/dash-after.jpg",
+    "video/public/dash-before.jpg",
+    "video/public/entire-checkpoint.jpg",
+    "video/public/trace-baseline.jpg",
+    "video/public/trace-improved.jpg",
+    "video/src/Demo.tsx",
+    "video/src/Root.tsx"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5-5",
+  "turn_id": "79a00fa18d13",
+  "checkpoint_transcript_start": 2825,
+  "transcript_lines_at_start": 2825,
+  "compact_transcript_start": 411,
+  "token_usage": {
+    "input_tokens": 18,
+    "cache_creation_tokens": 28433,
+    "cache_read_tokens": 5637374,
+    "output_tokens": 13738,
+    "api_call_count": 9
+  },
+  "session_metrics": {
+    "turn_count": 24
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-10-10T18:13:01.500077Z",
+    "agent_lines": 213,
+    "agent_removed": 6,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 213,
+    "total_lines_changed": 219,
+    "agent_percentage": 100,
+    "metric_version": 2
+  }
+}
