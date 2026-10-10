@@ -1,0 +1,8 @@
+neatlogs
+openai
+fastapi
+uvicorn
+pyyaml
+httpx
+pytest
+python-dotenv
