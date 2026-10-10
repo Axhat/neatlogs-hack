@@ -1,0 +1,6 @@
+# Intentionally outdated: each pin has known CVEs (see OSV.dev)
+Jinja2==2.11.2
+MarkupSafe==2.0.1
+requests==2.25.1
+urllib3==1.26.18
+pytest
