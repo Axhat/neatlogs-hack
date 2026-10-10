@@ -1,0 +1,46 @@
+{
+  "cli_version": "0.11.4",
+  "checkpoint_id": "01M4KF26GDFKQ2JKT3AJYNQJ6N",
+  "session_id": "12a15525-4067-4122-b427-591881a93e11",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-10T17:51:40.597568Z",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "agent/graph.py",
+    "agent/run.py",
+    "data/runs/entire-1791654626.json",
+    "data/runs/entire-1791654648.json",
+    "data/runs/entire-1791654668.json",
+    "demo/shop/scripts/reset.sh",
+    "hackathon.md"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5-5",
+  "turn_id": "380c34c32cd9",
+  "checkpoint_transcript_start": 2645,
+  "transcript_lines_at_start": 2645,
+  "compact_transcript_start": 381,
+  "token_usage": {
+    "input_tokens": 30,
+    "cache_creation_tokens": 25024,
+    "cache_read_tokens": 8809043,
+    "output_tokens": 12988,
+    "api_call_count": 15
+  },
+  "session_metrics": {
+    "turn_count": 22
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-10-10T17:51:40.13294Z",
+    "agent_lines": 164,
+    "agent_removed": 4,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 164,
+    "total_lines_changed": 168,
+    "agent_percentage": 100,
+    "metric_version": 2
+  }
+}
