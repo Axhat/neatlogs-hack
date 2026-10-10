@@ -1,0 +1,1 @@
+{"name":"blast-radius-video","private":true,"scripts":{"render":"remotion render src/index.ts Intro out/intro.mp4","still":"remotion still src/index.ts Intro"},"dependencies":{"@remotion/cli":"^4.0.534","@types/react":"^19.3.0","react":"^19.3.0","react-dom":"^19.3.0","remotion":"^4.0.534","typescript":"^7.0.2"}}
