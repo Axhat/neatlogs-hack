@@ -53,3 +53,8 @@ What changed (driven by the baseline trace): import graph -> only affected files
 - Checkpoint link: https://entire.io/gh/Axhat/neatlogs-hack/commit/a50363dd0691b008d1ecc9966c9152cd93948c3b
 - Checkpoint ID: `01M4JYYTA9J94PDTA97JDYS36X` (session: "push it and get the trace links", Claude Code)
 - Entire features used: Checkpoints (all commits). Graph/Brain not yet used; our dependency graph is a custom import scanner.
+
+### Entire Graph in the agent loop
+- Installed `entire plugin install graph` (v0.4.0). The agent's `--mode entire` asks `entire graph search` which files use each vulnerable package, then confirms each hit by checking the import line (hybrid: Entire finds, we verify). Falls back to our own AST scan if the CLI is missing.
+- 3 runs, claude-sonnet-4.6: tests pass 3/3, 0 vulns left (OSV re-scan), avg ~4.7 steps, ~$0.044 est. per run, ~18.6s. Same task and similar cost to our own scanner (v2), so Entire's graph replaces our custom code without a loss.
+- Note: Entire Graph returned nothing for a plain (non-git) folder; the demo work copy is now a throwaway git repo (see `demo/shop/scripts/reset.sh`).

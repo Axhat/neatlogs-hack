@@ -1,0 +1,36 @@
+{
+  "label": "entire",
+  "seconds": 17.4,
+  "mode": "entire",
+  "tests_pass": true,
+  "findings": 3,
+  "vulns_remaining": 0,
+  "steps": 4,
+  "tool_calls": 5,
+  "tokens_in": 8042,
+  "tokens_out": 891,
+  "cost_usd_est": 0.0375,
+  "results": [
+    {
+      "finding": {
+        "packages": [
+          "Jinja2",
+          "requests",
+          "urllib3"
+        ]
+      },
+      "steps": 4,
+      "tool_calls": 5,
+      "tokens_in": 8042,
+      "tokens_out": 891,
+      "tool_counts": {
+        "write_file": 2,
+        "install_requirements": 1,
+        "run_tests": 1,
+        "finish": 1
+      },
+      "summary": "Three packages were upgraded in requirements.txt: Jinja2 from 2.11.2 to 3.1.6 (with MarkupSafe bumped from 2.0.1 to 3.0.2 to match), requests from 2.25.1 to 2.33.0, and urllib3 from 1.26.18 to 2.8.0. One code fix was required in shop/render.py: Jinja2 3.x removed the re-exports of `Markup` and `escape`, so those two imports were updated to come directly from `markupsafe` instead of `jinja2`. No changes were needed in shop/tax.py. All 4 tests pass.",
+      "cost_usd_est": 0.0375
+    }
+  ]
+}

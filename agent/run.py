@@ -22,7 +22,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--label", default="baseline")
     ap.add_argument("--max-steps", type=int, default=25)
-    ap.add_argument("--mode", choices=["naive", "improved"], default="naive")
+    ap.add_argument("--mode", choices=["naive", "improved", "entire"], default="naive")
     args = ap.parse_args()
 
     neatlogs.init(workflow_name="blast-radius", tags=[args.label])
@@ -35,8 +35,9 @@ def main():
     def run():
         findings = osv.scan((sb.root / "requirements.txt").read_text())
         todo = [f for f in findings if f["target"]]
-        if args.mode == "improved":
-            g = depgraph.build(sb.root, osv.parse_pins((sb.root / "requirements.txt").read_text()))
+        if args.mode in ("improved", "entire"):
+            pins = osv.parse_pins((sb.root / "requirements.txt").read_text())
+            g = depgraph.build_with_entire(sb.root, pins) if args.mode == "entire" else depgraph.build(sb.root, pins)
             results = [{"finding": {"packages": [f["package"] for f in todo]}, **fix_all(client, sb, todo, g, max_steps=args.max_steps)}]
         else:
             results = [{"finding": f, **fix_package(client, sb, f, max_steps=args.max_steps)} for f in todo]
