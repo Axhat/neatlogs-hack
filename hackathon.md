@@ -24,3 +24,16 @@ TBD
 
 ## Submission checklist
 See PLAN.md.
+
+### Before/after (n=3 each, same task, claude-sonnet-4.6, cost = price estimate not billing)
+| Metric | Baseline (naive v1) | Improved (v2) | Change |
+|---|---|---|---|
+| LLM steps | 19.7 | 4.3 | -78% |
+| Tool calls | 36.3 | 5.3 | -85% |
+| Input tokens | 50.2k | 8.8k | -82% |
+| Est. cost / run | $0.199 | $0.041 | -79% |
+| Time | 48.4s | 18.5s | -62% |
+| Tests pass | 3/3 | 3/3 | - |
+| Vulns left (OSV rescan) | 0 | 0 | - |
+
+What changed (driven by the baseline trace): import graph -> only affected files given up front; all packages fixed in one loop with shared context; read cache; independent OSV re-scan after the run. Evidence: data/runs/baseline-*.json, data/runs/improved-*.json, neatlogs sessions tagged `baseline` / `improved`.

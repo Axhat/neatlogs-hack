@@ -1,0 +1,35 @@
+{
+  "label": "improved",
+  "seconds": 19.4,
+  "mode": "improved",
+  "tests_pass": true,
+  "findings": 3,
+  "vulns_remaining": 0,
+  "steps": 4,
+  "tool_calls": 4,
+  "tokens_in": 8121,
+  "tokens_out": 985,
+  "cost_usd_est": 0.0391,
+  "results": [
+    {
+      "finding": {
+        "packages": [
+          "Jinja2",
+          "requests",
+          "urllib3"
+        ]
+      },
+      "steps": 4,
+      "tool_calls": 4,
+      "tokens_in": 8121,
+      "tokens_out": 985,
+      "tool_counts": {
+        "write_file": 2,
+        "install_requirements": 1,
+        "run_tests": 1
+      },
+      "summary": null,
+      "cost_usd_est": 0.0391
+    }
+  ]
+}

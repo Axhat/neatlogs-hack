@@ -10,6 +10,8 @@ MAX_OUT = 6000
 class Sandbox:
     def __init__(self, root):
         self.root = Path(root).resolve()
+        self.cache = {}  # path -> content last returned (only used when cache_reads=True)
+        self.cache_reads = False
 
     def _p(self, rel):
         p = (self.root / rel).resolve()
@@ -24,7 +26,12 @@ class Sandbox:
 
     @neatlogs.span(kind="TOOL", name="read_file")
     def read_file(self, path):
-        return self._p(path).read_text()
+        text = self._p(path).read_text()
+        if self.cache_reads:
+            if self.cache.get(path) == text:
+                return f"[{path} unchanged since you last read it]"
+            self.cache[path] = text
+        return text
 
     @neatlogs.span(kind="TOOL", name="write_file")
     def write_file(self, path, content):
