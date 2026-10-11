@@ -1,0 +1,69 @@
+{
+  "label": "demo-final",
+  "seconds": 22.4,
+  "mode": "entire",
+  "tests_pass": true,
+  "findings": 3,
+  "vulns_remaining": 0,
+  "steps": 5,
+  "tool_calls": 5,
+  "tokens_in": 9882,
+  "tokens_out": 965,
+  "cost_usd_est": 0.0441,
+  "results": [
+    {
+      "finding": {
+        "packages": [
+          "Jinja2",
+          "requests",
+          "urllib3"
+        ]
+      },
+      "steps": 5,
+      "tool_calls": 5,
+      "tokens_in": 9882,
+      "tokens_out": 965,
+      "tool_counts": {
+        "write_file": 2,
+        "install_requirements": 1,
+        "run_tests": 1,
+        "finish": 1
+      },
+      "summary": "Three packages were upgraded in requirements.txt: Jinja2 2.11.2 \u2192 3.1.6, MarkupSafe 2.0.1 \u2192 3.0.2 (required companion bump), requests 2.25.1 \u2192 2.33.0, and urllib3 1.26.18 \u2192 2.8.0. One code fix was needed: in shop/render.py the imports of Markup and escape were moved from the jinja2 namespace to markupsafe, which is where Jinja2 3.x expects them to live. shop/tax.py required no changes. All 4 tests pass.",
+      "events": [
+        {
+          "step": 1,
+          "tool": "write_file",
+          "ok": true,
+          "out": "wrote requirements.txt (135 chars)"
+        },
+        {
+          "step": 2,
+          "tool": "write_file",
+          "ok": true,
+          "out": "wrote shop/render.py (828 chars)"
+        },
+        {
+          "step": 3,
+          "tool": "install_requirements",
+          "ok": true,
+          "out": "exit=0 "
+        },
+        {
+          "step": 4,
+          "tool": "run_tests",
+          "ok": true,
+          "out": "exit=0 ....                                                                     [100%] 4 passed in 0.82s "
+        },
+        {
+          "step": 5,
+          "tool": "finish",
+          "ok": true,
+          "out": "ok"
+        }
+      ],
+      "cost_usd_est": 0.0441,
+      "failed_actions": 0
+    }
+  ]
+}
