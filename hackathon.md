@@ -61,3 +61,11 @@ What changed (driven by the baseline trace): import graph -> only affected files
 
 ### Replay on real open-source repos
 See OSS_REPLAY.md. 4 real repos (of 51 tried; only 6 reproducible at all), agent matched or beat the maintainers' Dependabot fix, tests passed after, remaining vulns are Python-3.9-environment limits. Honest limits are listed in that file.
+
+### Failure recovery (real run)
+- Replay of Snehasis5/ci-cd-demo with Python-blind targeting: step 2 `install_requirements` FAILED (requests 2.33.0 needs Python >=3.10); step 3 the agent rewrote requirements.txt with a compatible version; step 4 install OK; step 5 tests pass.
+- neatlogs session `oss-Snehasis5_ci-cd-demo-1791714107`, trace `6d1ddaebcaa9d1b2704e629292450fcb` (screenshot: social/media/failure-recovery-trace.jpg). Raw: data/runs/oss-Snehasis5__ci-cd-demo-entire-ignorepy-1791714107.json
+
+### Python-aware targets, onboarding
+- agent/osv.py `safe_target`: smallest upgrade with no known advisories that the project's Python can install; reports what is blocked until Python is upgraded.
+- web/onboard.py + web/static/onboard.html: read-only scan of a public GitHub repo, suggested (unconfirmed) features/owners from folders and CODEOWNERS, trust-level choice. Prototype.

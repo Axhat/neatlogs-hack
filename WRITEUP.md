@@ -25,16 +25,24 @@ When a dependency turns out to be vulnerable, the people who must decide what to
 
 The improvement came straight from the neatlogs trace of the first run, which showed the agent re-listing and re-reading the same files for every package. The fix: give the agent only the files that import the package, fix all packages in one pass, cache repeat reads. Cost is our estimate from token counts and assumed model prices, not billing data.
 
+## Does it work on real code?
+We rewound 4 real open-source repos to the commit just before a maintainer merged a Dependabot fix, ran the agent, and compared (see `OSS_REPLAY.md`). Tests passed after in all 4, and the agent matched or beat the human's upgrade. Only 6 of 51 old repos could be rebuilt and pass their own tests, so we report that too. The agent now chooses the **smallest safe upgrade the project's own Python can install** and reports what stays blocked until Python is upgraded.
+
+**Failure and recovery (real):** in one replay an install failed because `requests 2.33.0` needs Python 3.10+; the agent read the error, picked a compatible version, reinstalled and the tests passed. The failed step and the recovery are in the neatlogs trace (`6d1ddaebcaa9d1b2704e629292450fcb`).
+
+## For the buyer
+A guided onboarding (`/onboard`): paste a public repo URL for a real read-only scan, confirm suggested features/owners (from folders and CODEOWNERS), pick a trust level (report only, PR with approval; auto-merge is roadmap). Revenue is never guessed; the buyer confirms it. Prototype: no sign-up or billing.
+
 ## How the required tools are used
 - **neatlogs:** every run is traced (workflow → agent → LLM/tool spans). The before/after comparison above is read off those traces.
-- **Entire:** checkpoints tie each change to the session that produced it (11 so far). We have not yet used Entire's Graph; our dependency graph is our own import scanner.
+- **Entire:** Graph (`entire graph search`) finds the files that use a vulnerable package and their covering test; the agent uses it in `--mode entire` (we still confirm each hit by checking the import line). Checkpoints tie each change to the session that produced it. We did not use Brain or Trails.
 - **cfo.ai:** Ari models pricing, unit economics and runway. We fed it the measured cost per run and a stress multiplier for real repos. Draft assumption: per-repo subscription with a capped number of included fixes and overage pricing.
 
 ## Honest limitations
 - The demo is a small seeded Python shop; real repos are larger, hence the stress multiplier in the cost model.
 - Revenue-at-risk figures are demo inputs.
-- Only the CVE/upgrade path is automated. Vendor-health (Crustdata) and licence checks are planned, not built.
-- Three runs per version is a small sample.
+- Only the CVE/upgrade path is automated, for Python `requirements.txt`. Vendor-health (Crustdata) and licence checks are planned, not built.
+- Three runs per version, and 4 real repos with 1 run each, are small samples; some real repos have a single test, so "tests pass" is a weak check.
 - The deployed dashboard is read-only; the agent runner is deliberately not exposed publicly because it uses a shared, budgeted model key.
 
 ## Links

@@ -5,7 +5,7 @@ from pathlib import Path
 
 import yaml
 from dotenv import load_dotenv
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT / ".env")
 
 from agent import graph as depgraph, osv  # noqa: E402
+from web import onboard  # noqa: E402
 
 app = FastAPI(title="Blast Radius")
 SRC = {"before": ROOT / "demo/shop", "after": ROOT / "demo/shop_after"}  # after = snapshot of the agent-fixed shop
@@ -77,6 +78,20 @@ def runs():
         d = json.loads(p.read_text())
         out.append({k: d.get(k) for k in ("label", "mode", "steps", "tool_calls", "tokens_in", "cost_usd_est", "seconds", "tests_pass", "vulns_remaining")} | {"file": p.name})
     return out
+
+
+@app.post("/api/onboard/scan")
+async def onboard_scan(req: Request):
+    ip = req.client.host if req.client else "?"
+    if onboard.rate_limited(ip):
+        return {"error": "Rate limit: 6 scans per hour. Please try again later."}
+    body = await req.json()
+    return onboard.scan_repo(str(body.get("repo_url", "")))
+
+
+@app.get("/onboard")
+def onboard_page():
+    return FileResponse(ROOT / "web/static/onboard.html")
 
 
 app.mount("/static", StaticFiles(directory=ROOT / "web/static"), name="static")

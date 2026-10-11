@@ -30,12 +30,13 @@ def build(root, pins, business_path=None):
     """Return {package: {'version', 'files': [...]}} for pinned packages, plus business info if present."""
     root = Path(root)
     pkg_files = {p: [] for p in pins}
+    lower = {p.lower(): p for p in pins}
     for f in sorted(root.rglob("*.py")):
         if ".venv" in f.parts or "tests" in f.parts:
             continue
         for mod in imports_of(f):
-            pkg = IMPORT_TO_PKG.get(mod, mod)
-            if pkg in pkg_files:
+            pkg = lower.get(IMPORT_TO_PKG.get(mod, mod).lower())
+            if pkg:
                 pkg_files[pkg].append(str(f.relative_to(root)))
     biz = {}
     by = Path(business_path) if business_path else root / "business.yaml"

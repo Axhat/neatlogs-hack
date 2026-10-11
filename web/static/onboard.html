@@ -1,0 +1,94 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blast Radius onboarding</title>
+<style>
+:root{--bg:#0b0f1a;--card:#131a2b;--ink:#e8ecf4;--dim:#8a94a8;--red:#ff4d5e;--green:#2fd27a;--blue:#5b8cff;--line:#232c45;--amber:#f5b942}
+@media (prefers-color-scheme:light){:root{--bg:#f5f7fb;--card:#fff;--ink:#101828;--dim:#667085;--line:#e4e7ec}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,-apple-system,Helvetica,Arial,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:24px 16px 60px}
+h1{margin:0 0 4px;font-size:24px}.sub{color:var(--dim);margin-bottom:18px}
+.banner{background:rgba(245,185,66,.12);border:1px solid var(--amber);color:var(--ink);border-radius:10px;padding:10px 14px;margin-bottom:18px;font-size:13px}
+.steps{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.step{flex:1;min-width:140px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--dim);background:var(--card);font-size:13px}
+.step b{display:block;color:var(--ink);font-size:14px}.step.on{border-color:var(--blue)}.step.on b{color:var(--blue)}.step.done b::after{content:" ✓";color:var(--green)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:16px}
+input[type=text],input[type=number],select{background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:9px 11px;font:inherit}
+input[type=text]{width:100%}
+button{background:var(--blue);color:#fff;border:0;border-radius:8px;padding:9px 16px;font:inherit;font-weight:600;cursor:pointer}
+button.ghost{background:transparent;color:var(--blue);border:1px solid var(--blue)}button:disabled{opacity:.5;cursor:default}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.err{color:var(--red);margin-top:10px}.dim{color:var(--dim)}.red{color:var(--red)}.green{color:var(--green)}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--dim);font-weight:500}
+.chip{display:inline-block;padding:1px 8px;border-radius:99px;background:var(--line);font-size:12px;color:var(--dim);margin-left:6px}
+.opt{display:block;border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:10px;cursor:pointer}.opt input{margin-right:8px}.opt.sel{border-color:var(--blue)}
+pre{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px;overflow:auto;font-size:13px}
+.hide{display:none}
+</style></head><body><div class="wrap">
+<h1>Blast Radius: get started</h1>
+<div class="sub">From a repo URL to "what is at risk, who owns it, and how do we fix it", in about 10 minutes.</div>
+<div class="banner"><b>Prototype.</b> Step 1 and 2 are a real, read-only scan. Steps 3 and 4 show the intended flow; there is no sign-up, billing or auto-merge yet. Revenue is never guessed: you confirm it.</div>
+<div class="steps" id="steps"></div>
+
+<div class="card" id="s1">
+  <b>1. Connect a repository</b>
+  <div class="dim" style="margin:4px 0 12px">Paste a public GitHub repo URL. We clone it shallowly, read the requirements file, and change nothing.</div>
+  <div class="row"><input type="text" id="url" placeholder="https://github.com/owner/repo" style="flex:1;min-width:260px"><button id="scan">Scan (read-only)</button></div>
+  <div class="row" style="margin-top:10px"><span class="dim">Try:</span>
+    <button class="ghost" data-u="https://github.com/Snehasis5/ci-cd-demo">ci-cd-demo</button>
+    <button class="ghost" data-u="https://github.com/funkaoshi/osr-opml">osr-opml</button>
+    <button class="ghost" data-u="https://github.com/apqlzm/scraposer">scraposer</button></div>
+  <div class="err" id="err"></div><div class="dim" id="busy" style="margin-top:10px"></div>
+</div>
+
+<div class="card hide" id="s2"><b>2. Your blast radius</b><div id="res" style="margin-top:10px"></div><div style="margin-top:12px"><button id="to3">Continue: confirm business context</button></div></div>
+
+<div class="card hide" id="s3"><b>3. Confirm the business context</b>
+  <div class="dim" style="margin:4px 0 12px">We suggest features and owners from your folder names and <code>CODEOWNERS</code>. Edit anything that is wrong. Revenue and criticality are yours to set.</div>
+  <div style="overflow:auto"><table><thead><tr><th>Package</th><th>Feature it supports</th><th>Owner</th><th>Criticality</th><th>$ at risk / day (optional)</th></tr></thead><tbody id="ctx"></tbody></table></div>
+  <div style="margin-top:12px" class="row"><button id="gen">Generate business.yaml</button><button class="ghost" id="to4">Continue: choose trust level</button></div>
+  <pre id="yaml" class="hide"></pre></div>
+
+<div class="card hide" id="s4"><b>4. Choose how much to trust the agent</b>
+  <div style="margin-top:12px">
+   <label class="opt sel"><input type="radio" name="lvl" checked> <b>Report only</b> <span class="dim">Weekly digest to each owner. No code changes.</span></label>
+   <label class="opt"><input type="radio" name="lvl"> <b>Pull request with approval</b> <span class="dim">Agent proposes the fix and runs your tests; a human merges. Every fix links to its audit trail.</span></label>
+   <label class="opt"><input type="radio" name="lvl" disabled> <b>Auto-merge low-risk fixes</b> <span class="dim">Roadmap. Needs a track record on your repo first.</span></label>
+  </div>
+  <div style="margin-top:14px"><b>What you get with every fix</b>
+   <ul class="dim"><li>An audit trail of what the agent read, changed and spent (neatlogs trace).</li><li>Provenance: the session that produced each change (Entire checkpoint).</li><li>Plain-language impact for owners, with deadline.</li><li>An independent re-scan after the fix, plus anything blocked by your Python version.</li></ul></div>
+  <div style="margin-top:14px"><b>Draft pricing</b> <span class="dim">(from our cfo.ai model, assumptions not a quote)</span>
+   <table style="margin-top:8px"><tr><th>Plan</th><th>Per repo / month</th><th>Fixes included</th><th>Extra fix</th></tr>
+   <tr><td>Startup</td><td>$15</td><td>1</td><td>$7</td></tr><tr><td>Growth</td><td>$25</td><td>2</td><td>$7</td></tr></table></div>
+  <div class="green" style="margin-top:14px">You are set up. Next: review the first digest and approve the first fix.</div></div>
+<div class="dim" style="margin-top:20px"><a href="/" style="color:var(--blue)">← Back to the dashboard</a></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);let data=null,cur=1;
+const names=["Connect","Blast radius","Business context","Trust level"];
+function steps(){$('steps').innerHTML=names.map((n,i)=>`<div class="step ${i+1===cur?'on':''} ${i+1<cur?'done':''}"><span class="dim">Step ${i+1}</span><b>${n}</b></div>`).join('')}
+function show(n){cur=n;steps();for(let i=2;i<=4;i++)$('s'+i).classList.toggle('hide',i>n)}
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+async function scan(){
+  $('err').textContent='';$('busy').textContent='Scanning… (cloning and checking advisories, up to a minute)';$('scan').disabled=true;
+  try{const r=await fetch('/api/onboard/scan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({repo_url:$('url').value})});data=await r.json()}
+  catch(e){data={error:'Network error, try again.'}}
+  $('busy').textContent='';$('scan').disabled=false;
+  if(data.error){$('err').textContent=data.error;return}
+  const f=data.findings;
+  $('res').innerHTML=`<div class="dim">${esc(data.repo)} · ${esc(data.requirements_file)} · ${data.pins_scanned} pinned packages scanned${data.unpinned_skipped?` · ${data.unpinned_skipped} unpinned skipped`:''}</div>`+
+   (f.length?f.map(x=>`<div style="padding:12px 0;border-top:1px solid var(--line)"><b>${esc(x.package)} ${esc(x.current)}</b> <span class="red">→ ${esc(x.fix)}</span><span class="chip">${x.advisories} advisories</span>
+     <div class="dim">${x.files.length?'Used in: '+x.files.map(esc).join(', '):'Indirect, or not imported by name.'}</div><div class="dim">${x.examples.map(esc).join(' · ')}</div></div>`).join(''):'<div class="green" style="margin-top:10px"><b>All clear.</b> No known advisories in the pinned packages.</div>');
+  show(2)}
+function ctx(){ $('ctx').innerHTML=data.findings.map((x,i)=>`<tr><td><b>${esc(x.package)}</b><span class="chip">suggested</span></td>
+   <td><input type="text" id="f${i}" value="${esc(x.suggested_feature)}"></td>
+   <td><input type="text" id="o${i}" value="${esc(x.suggested_owner||'')}" placeholder="${data.has_codeowners?'no matching owner':'no CODEOWNERS, add one'}"></td>
+   <td><select id="c${i}"><option>High</option><option selected>Medium</option><option>Low</option></select></td>
+   <td><input type="number" id="r${i}" min="0" placeholder="e.g. 1500" style="width:120px"></td></tr>`).join('');show(3)}
+function yaml(){
+  let y=`company: ${data.repo}\nfeatures:\n`;const seen={};
+  data.findings.forEach((x,i)=>{const fe=$('f'+i).value||'unnamed';if(!seen[fe]){seen[fe]=1;y+=`  ${fe}:\n    owner: ${$('o'+i).value||'unassigned'}\n    criticality: ${$('c'+i).value}\n`+($('r'+i).value?`    revenue_at_risk_per_day_usd: ${$('r'+i).value}\n`:'')}});
+  y+='packages:\n'+data.findings.map((x,i)=>`  ${x.package}: {feature: ${$('f'+i).value||'unnamed'}}`).join('\n');
+  $('yaml').textContent=y;$('yaml').classList.remove('hide')}
+$('scan').onclick=scan;$('to3').onclick=ctx;$('gen').onclick=yaml;$('to4').onclick=()=>show(4);
+document.querySelectorAll('[data-u]').forEach(b=>b.onclick=()=>{$('url').value=b.dataset.u;scan()});
+document.querySelectorAll('.opt input').forEach(r=>r.onchange=()=>document.querySelectorAll('.opt').forEach(o=>o.classList.toggle('sel',o.querySelector('input').checked)));
+show(1);
+</script></body></html>
