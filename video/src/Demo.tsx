@@ -71,9 +71,9 @@ const Terminal = () => {
 
 const rows = [
   ["funkaoshi/osr-opml", "lxml 4.9.3 → 6.1.0", "lxml 4.9.3 → 6.1.0", "same"],
-  ["apqlzm/scraposer", "lxml 4.6.5 → 4.9.1", "requests → 2.32.3 + lxml → 6.1.0", "more complete"],
-  ["Snehasis5/ci-cd-demo", "requests 2.19.0 → 2.32.3", "requests 2.19.0 → 2.32.3", "same"],
-  ["kapihllkumar/my-blog-practice", "requests 2.19.1 → 2.32.2", "requests 2.19.1 → 2.32.3", "same / newer"],
+  ["apqlzm/scraposer", "lxml 4.6.5 → 4.9.1", "requests → 2.32.5 + lxml → 6.1.0", "more complete"],
+  ["Snehasis5/ci-cd-demo", "requests 2.19.0 → 2.32.3", "requests 2.19.0 → 2.32.5", "same / newer"],
+  ["kapihllkumar/my-blog-practice", "requests 2.19.1 → 2.32.2", "requests 2.19.1 → 2.32.5", "same / newer"],
 ];
 const Replay = () => {
   const n = useCurrentFrame();
@@ -90,7 +90,7 @@ const Replay = () => {
         </div>
       ))}
       <div style={{ marginTop: 20, color: DIM, fontSize: 19, opacity: f(n, 90, 110) }}>
-        Only 6 of 51 old repos could even be rebuilt and pass their own tests. Remaining advisories need Python 3.10+, which these repos don't run on.
+        Only 6 of 51 old repos could be rebuilt and pass their own tests. What stays blocked needs Python 3.10+; the agent reports it as blocked.
       </div>
     </div>
   );
@@ -119,6 +119,42 @@ const Bars = () => {
   );
 };
 
+const events = [
+  { ok: true, t: "write_file  requirements.txt → requests==2.33.0" },
+  { ok: false, t: "install_requirements  ✗ requests 2.33.0 needs Python ≥ 3.10 (project runs 3.9)" },
+  { ok: true, t: "write_file  requirements.txt → compatible version" },
+  { ok: true, t: "install_requirements  ✓ exit 0" },
+  { ok: true, t: "run_tests  ✓ 1 passed" },
+];
+const Recovery = ({ d }: any) => {
+  const n = useCurrentFrame();
+  return (
+    <div style={{ display: "flex", gap: 22, width: "100%", height: "100%" }}>
+      <div style={{ flex: 1.45 }}><Shot src="failure-recovery-trace.jpg" dur={d} zoom={0.03} /></div>
+      <div style={{ flex: 1, background: CARD, border: "1px solid #232c45", borderRadius: 12, padding: "22px 22px", fontFamily: mono, fontSize: 18, lineHeight: 1.5 }}>
+        <div style={{ color: DIM, fontFamily: font, fontSize: 18, marginBottom: 12 }}>What the agent did (real run)</div>
+        {events.map((e, i) => (
+          <div key={i} style={{ color: e.ok ? INK : RED, marginBottom: 14, opacity: f(n, 15 + i * 22, 30 + i * 22), fontWeight: e.ok ? 400 : 700 }}>{i + 1}. {e.t}</div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const Slides = ({ srcs, d }: any) => {
+  const n = useCurrentFrame();
+  const per = d / srcs.length;
+  return (
+    <div style={{ position: "relative", width: "100%", height: "100%" }}>
+      {srcs.map((src: string, i: number) => {
+        const a = i * per, b = (i + 1) * per;
+        const o = Math.min(f(n, a, a + 10), 1 - (i < srcs.length - 1 ? f(n, b - 10, b) : 0));
+        return <div key={src} style={{ position: "absolute", inset: 0, opacity: o }}><Shot src={src} dur={per} zoom={0.03} /></div>;
+      })}
+    </div>
+  );
+};
+
 const End = () => {
   const n = useCurrentFrame();
   return (
@@ -137,7 +173,7 @@ const End = () => {
 };
 
 const scenes = [
-  { sec: 6 }, { sec: 8 }, { sec: 8 }, { sec: 10 }, { sec: 9 }, { sec: 8 }, { sec: 11 }, { sec: 9 }, { sec: 8 },
+  { sec: 6 }, { sec: 7 }, { sec: 7 }, { sec: 9 }, { sec: 9 }, { sec: 8 }, { sec: 11 }, { sec: 10 }, { sec: 12 }, { sec: 10 }, { sec: 8 },
 ];
 export const DEMO_FRAMES = scenes.reduce((a, s) => a + dur(s.sec), 0);
 
@@ -180,17 +216,27 @@ export const Demo = () => {
         </Scene>
       ))}
       {seq(6, (d: number) => (
-        <Scene dur={d} title="6. Does it work on real code?" tool="real open-source replay" caption={<>We rewound to the commit just before real maintainers merged a fix, ran the agent, and compared.</>}>
-          <Replay />
+        <Scene dur={d} title="6. When an action fails" tool="neatlogs (real run)" caption={<>The install failed. The agent read the error, switched to a version the project can run, and the tests passed. Now it picks that version up front.</>}>
+          <Recovery d={d} />
         </Scene>
       ))}
       {seq(7, (d: number) => (
-        <Scene dur={d} title="7. Can it be a business?" tool="cfo.ai" caption={<>cfo.ai models pricing from the measured cost: $15–25 per repo per month, fixes included, $7 overage. Draft assumptions, not predictions.</>}>
-          <Shot src="cfo-plan.jpg" dur={d} zoom={0.04} />
+        <Scene dur={d} title="7. Does it work on real code?" tool="real open-source replay" caption={<>We rewound to the commit just before real maintainers merged a fix, ran the agent, and compared.</>}>
+          <Replay />
         </Scene>
       ))}
       {seq(8, (d: number) => (
-        <Scene dur={d} title="8. Every change has its session" tool="Entire checkpoints" caption={<>Each commit is tied to the agent session that produced it. Checkpoint ID <b>01M4JYYTA9J94PDTA97JDYS36X</b>.</>}>
+        <Scene dur={d} title="8. Onboarding a buyer" tool="prototype" caption={<>Paste a repo URL → see the blast radius → confirm suggested owners and features (we never guess your revenue) → choose how much to trust the agent.</>}>
+          <Slides srcs={["onboard-2-blast-radius.jpg", "onboard-3-context.jpg", "onboard-4-trust.jpg"]} d={d} />
+        </Scene>
+      ))}
+      {seq(9, (d: number) => (
+        <Scene dur={d} title="9. Can it be a business?" tool="cfo.ai" caption={<>cfo.ai turns the measured cost per fix into pricing, revenue and cash paths: improved agent vs naive at 10–20× real-repo stress. Draft assumptions, not predictions.</>}>
+          <Shot src="cfo-revenue-cash-charts.jpg" dur={d} zoom={0.04} />
+        </Scene>
+      ))}
+      {seq(10, (d: number) => (
+        <Scene dur={d} title="10. Every change has its session" tool="Entire checkpoints" caption={<>Each commit is tied to the agent session that produced it. Checkpoint ID <b>01M4JYYTA9J94PDTA97JDYS36X</b>.</>}>
           <Shot src="entire-checkpoint.jpg" dur={d} zoom={0.04} />
         </Scene>
       ))}
