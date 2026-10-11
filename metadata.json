@@ -1,0 +1,44 @@
+{
+  "cli_version": "0.11.4",
+  "checkpoint_id": "01M4N7V3604HJV8H3CN9X0HBFS",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 4,
+  "files_touched": [
+    "OSS_REPLAY.md",
+    "agent/fixer.py",
+    "agent/osv.py",
+    "agent/run.py",
+    "agent/tools.py",
+    "data/runs/old-replay/oss-Snehasis5__ci-cd-demo-entire-1791655718.json",
+    "data/runs/old-replay/oss-apqlzm__scraposer-entire-1791655674.json",
+    "data/runs/old-replay/oss-funkaoshi__osr-opml-entire-1791655647.json",
+    "data/runs/old-replay/oss-kapihllkumar__my-blog-practice-entire-1791655736.json",
+    "data/runs/oss-Snehasis5__ci-cd-demo-entire-1791655718.json",
+    "data/runs/oss-Snehasis5__ci-cd-demo-entire-1791714204.json",
+    "data/runs/oss-Snehasis5__ci-cd-demo-entire-ignorepy-1791714107.json",
+    "data/runs/oss-apqlzm__scraposer-entire-1791655674.json",
+    "data/runs/oss-apqlzm__scraposer-entire-1791714163.json",
+    "data/runs/oss-funkaoshi__osr-opml-entire-1791655647.json",
+    "data/runs/oss-funkaoshi__osr-opml-entire-1791714137.json",
+    "data/runs/oss-kapihllkumar__my-blog-practice-entire-1791655736.json",
+    "data/runs/oss-kapihllkumar__my-blog-practice-entire-1791714187.json",
+    "oss/replay.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 18,
+    "cache_creation_tokens": 616909,
+    "cache_read_tokens": 5273447,
+    "output_tokens": 21008,
+    "api_call_count": 9
+  }
+}

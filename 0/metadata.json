@@ -1,0 +1,67 @@
+{
+  "cli_version": "0.11.4",
+  "checkpoint_id": "01M4N7V3604HJV8H3CN9X0HBFS",
+  "session_id": "12a15525-4067-4122-b427-591881a93e11",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-11T10:23:56.621753Z",
+  "branch": "main",
+  "checkpoints_count": 4,
+  "files_touched": [
+    "OSS_REPLAY.md",
+    "agent/fixer.py",
+    "agent/osv.py",
+    "agent/run.py",
+    "agent/tools.py",
+    "data/runs/old-replay/oss-Snehasis5__ci-cd-demo-entire-1791655718.json",
+    "data/runs/old-replay/oss-apqlzm__scraposer-entire-1791655674.json",
+    "data/runs/old-replay/oss-funkaoshi__osr-opml-entire-1791655647.json",
+    "data/runs/old-replay/oss-kapihllkumar__my-blog-practice-entire-1791655736.json",
+    "data/runs/oss-Snehasis5__ci-cd-demo-entire-1791655718.json",
+    "data/runs/oss-Snehasis5__ci-cd-demo-entire-1791714204.json",
+    "data/runs/oss-Snehasis5__ci-cd-demo-entire-ignorepy-1791714107.json",
+    "data/runs/oss-apqlzm__scraposer-entire-1791655674.json",
+    "data/runs/oss-apqlzm__scraposer-entire-1791714163.json",
+    "data/runs/oss-funkaoshi__osr-opml-entire-1791655647.json",
+    "data/runs/oss-funkaoshi__osr-opml-entire-1791714137.json",
+    "data/runs/oss-kapihllkumar__my-blog-practice-entire-1791655736.json",
+    "data/runs/oss-kapihllkumar__my-blog-practice-entire-1791714187.json",
+    "oss/replay.py"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5-5",
+  "turn_id": "127ce2c65f4f",
+  "checkpoint_transcript_start": 2910,
+  "transcript_lines_at_start": 2910,
+  "compact_transcript_start": 423,
+  "token_usage": {
+    "input_tokens": 18,
+    "cache_creation_tokens": 616909,
+    "cache_read_tokens": 5273447,
+    "output_tokens": 21008,
+    "api_call_count": 9
+  },
+  "session_metrics": {
+    "turn_count": 28
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-10-11T10:23:56.140036Z",
+    "agent_lines": 598,
+    "agent_removed": 149,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 598,
+    "total_lines_changed": 747,
+    "agent_percentage": 100,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0
+    }
+  ]
+}
