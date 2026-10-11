@@ -1,0 +1,38 @@
+aren't we updating the previous instance that we did is the 20$ exhausted or what or what else should i do should i provide you a new account
+
+1. Account ID: 063028693684
+IAM username - hackathon-user-113
+console pass - Jez=Vi+WwF8Rb6qA
+access key id - AKIAQ5LGNRK2EN4ABATL
+secret access key - REDACTED
+2. As part of the Hackathon setup, we have provisioned AWS accounts for the participating users.
+To ensure the users are aware of the permitted actions and the associated restrictions, please find below the usage guidelines that apply to these accounts:
+AWS Region
+Users must use us-east-1 only. All other AWS regions are unavailable.
+Approved AWS Services
+Users can use only the approved services:
+EC2
+Lambda
+IAM Roles – Users can create IAM roles and attach policies to them.
+Load Balancers
+VPC Usage
+Users must use only the Hackathon_VPC that has already been provisioned in us-east-1.
+EC2 instances and load balancers must be created within this VPC.
+Users are not permitted to create their own VPCs.
+EC2 Instance Types
+Each user is permitted to run one EC2 instance, using only the following instance types:
+t2: t2.nano, t2.micro, t2.small, t2.medium, t2.large
+t3: t3.nano, t3.micro, t3.small, t3.medium, t3.large
+t3a: t3a.nano, t3a.micro, t3a.small, t3a.medium, t3a.large
+
+EC2 Instance Limit
+Only one EC2 instance per user is permitted.
+If a user needs to replace their existing instance, they must terminate the existing instance first and then launch the new one.
+If a new instance is created without terminating the previous one, our automation will automatically terminate the newly created instance.
+EBS Volume Limit
+EBS volumes must be 50 GB or less.
+Volumes larger than 50 GB cannot be created.
+Please share these guidelines with the Hackathon participants so that they are aware of the available permissions and limitations while using their AWS accounts.
+
+
+use this account
