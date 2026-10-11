@@ -15,6 +15,12 @@ security advisories. Edit requirements.txt, install, run the tests, and fix any 
 The tests must pass at the end. Do not change tests. Call finish with a plain-language summary."""
 
 
+def _failed(out):
+    """A tool result that reports an error or a non-zero exit code."""
+    head = out[:80]
+    return head.startswith("ERROR") or (head.startswith("exit=") and not head.startswith("exit=0"))
+
+
 def make_client():
     return neatlogs.wrap(openai.OpenAI(base_url=os.environ["LITELLM_BASE_URL"], api_key=os.environ["LITELLM_API_KEY"]))
 
@@ -48,10 +54,12 @@ def fix_package(client, sandbox: Sandbox, finding, max_steps=25, model=None):
                 except Exception as e:  # tool errors go back to the model
                     out = f"ERROR: {e}"
             msgs.append({"role": "tool", "tool_call_id": tc.id, "content": out})
+            stats.setdefault("events", []).append({"step": stats["steps"], "tool": name, "ok": not _failed(out), "out": out[:200].replace("\n", " ")})
         if done:
             break
     pin, pout = PRICES.get(model, (0, 0))
     stats["cost_usd_est"] = round(stats["tokens_in"] / 1e6 * pin + stats["tokens_out"] / 1e6 * pout, 4)
+    stats["failed_actions"] = sum(1 for e in stats.get("events", []) if not e["ok"])
     return stats
 
 
@@ -70,7 +78,7 @@ def fix_all(client, sandbox: Sandbox, findings, graph, max_steps=15, model=None)
     sandbox.cache_reads = True
     files = sorted({f for fd in findings for f in graph[fd["package"]]["files"]})
     ctx = "\n\n".join(f"=== {f} ===\n{sandbox.read_file(f)}" for f in ["requirements.txt"] + files)
-    todo = "\n".join(f"- {fd['package']} {fd['current']} -> {fd['target']} (used in: {', '.join(graph[fd['package']]['files']) or 'indirect'}; advisories: {len(fd['advisories'])})" for fd in findings)
+    todo = "\n".join(f"- {fd['package']} {fd['current']} -> {fd['target']} (used in: {', '.join(graph[fd['package']]['files']) or 'indirect'}; advisories: {len(fd['advisories'])}){' NOTE: newest release installable on this project Python; ' + str(fd.get('advisories_left_at_target')) + ' advisories remain until Python is upgraded.' if fd.get('python_constrained') else ''}" for fd in findings)
     msgs = [{"role": "system", "content": SYSTEM_V2},
             {"role": "user", "content": f"Upgrades:\n{todo}\n\nCurrent files:\n{ctx}"}]
     stats = {"steps": 0, "tool_calls": 0, "tokens_in": 0, "tokens_out": 0, "tool_counts": {}, "summary": None}
@@ -96,8 +104,10 @@ def fix_all(client, sandbox: Sandbox, findings, graph, max_steps=15, model=None)
                 except Exception as e:
                     out = f"ERROR: {e}"
             msgs.append({"role": "tool", "tool_call_id": tc.id, "content": out})
+            stats.setdefault("events", []).append({"step": stats["steps"], "tool": name, "ok": not _failed(out), "out": out[:200].replace("\n", " ")})
         if done:
             break
     pin, pout = PRICES.get(model, (0, 0))
     stats["cost_usd_est"] = round(stats["tokens_in"] / 1e6 * pin + stats["tokens_out"] / 1e6 * pout, 4)
+    stats["failed_actions"] = sum(1 for e in stats.get("events", []) if not e["ok"])
     return stats

@@ -20,6 +20,10 @@ class Sandbox:
             raise ValueError("path escapes sandbox")
         return p
 
+    def python_version(self):
+        out, rc = self._run([str(self.root / ".venv/bin/python"), "-c", "import platform;print(platform.python_version())"])
+        return out.strip() if rc == 0 else None
+
     @neatlogs.span(kind="TOOL", name="list_files")
     def list_files(self):
         return "\n".join(sorted(str(p.relative_to(self.root)) for p in self.root.rglob("*")

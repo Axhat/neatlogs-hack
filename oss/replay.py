@@ -54,7 +54,11 @@ def main():
     sb.req = req
     before_tests = sb.run_tests()
     reqs = (d / req).read_text()
-    findings = [f for f in osv.scan(reqs) if f["target"]]
+    ignore_py = "--ignore-python" in sys.argv  # reproduces the pre-fix behaviour: target may not install on this Python
+    pyver = None if ignore_py else sb.python_version()
+    all_findings = osv.scan(reqs, pyver)
+    findings = [f for f in all_findings if f["target"]]
+    blocked = [{"package": f["package"], "needs": f["unconstrained_target"]} for f in all_findings if not f["target"] or f.get("advisories_left_at_target")]
     client = make_client()
     t0 = time.time()
     stats = None
@@ -65,13 +69,13 @@ def main():
             stats = fix_all(client, sb, findings, g, max_steps=20)
     after_tests = sb.run_tests()
     diff = sh("git diff --stat", d)[1].strip()
-    remaining = osv.scan((d / req).read_text())
+    remaining = osv.scan((d / req).read_text(), sb.python_version())
     res = {"repo": c["repo"], "pr": c["pr"], "human_fix": c["title"], "human_files": c["files"], "mode": mode,
            "tests_before": before_tests.startswith("exit=0"), "vulns_before": len(findings),
            "tests_after": after_tests.startswith("exit=0"), "vulns_after": len(remaining),
-           "agent_changed": diff.splitlines()[:8], "seconds": round(time.time() - t0, 1), "stats": stats}
+           "agent_changed": diff.splitlines()[:8], "python": sb.python_version(), "python_aware": not ignore_py, "blocked_by_python": blocked, "seconds": round(time.time() - t0, 1), "stats": stats}
     neatlogs.flush()
-    out_f = ROOT / "data" / "runs" / f"oss-{c['repo'].replace('/', '__')}-{mode}-{int(t0)}.json"
+    out_f = ROOT / "data" / "runs" / f"oss-{c['repo'].replace('/', '__')}-{mode}{'-ignorepy' if ignore_py else ''}-{int(t0)}.json"
     out_f.write_text(json.dumps(res, indent=2))
     print(json.dumps(res, indent=2))
 

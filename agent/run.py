@@ -33,7 +33,7 @@ def main():
 
     @neatlogs.span(kind="WORKFLOW", name=f"blast-radius-run:{args.label}")
     def run():
-        findings = osv.scan((sb.root / "requirements.txt").read_text())
+        findings = osv.scan((sb.root / "requirements.txt").read_text(), sb.python_version())
         todo = [f for f in findings if f["target"]]
         if args.mode in ("improved", "entire"):
             pins = osv.parse_pins((sb.root / "requirements.txt").read_text())
@@ -46,7 +46,7 @@ def main():
     with neatlogs.identify(session_id=f"{args.label}-{int(t0)}"):
         findings, results = run()
     tests = sb.run_tests()
-    remaining = osv.scan((sb.root / "requirements.txt").read_text())  # independent re-scan of the final pins
+    remaining = osv.scan((sb.root / "requirements.txt").read_text(), sb.python_version())  # independent re-scan of the final pins
     summary = {
         "label": args.label, "seconds": round(time.time() - t0, 1),
         "mode": args.mode, "tests_pass": tests.startswith("exit=0"), "findings": len(findings),
