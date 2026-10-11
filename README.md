@@ -7,7 +7,7 @@ When a package is vulnerable, the people who decide what to do (product, finance
 
 - **Demo video:** posted on X with the submission (source: [video/](video/))
 - **Progress thread:** https://x.com/axhat_/status/2108951386805387510
-- **Live dashboard (AWS us-east-1):** http://54.147.135.237/ (read-only dashboard; the onboarding page `/onboard` is in this repo and runs locally, the live box is redeployed from `deploy/user-data.sh`)
+- **Live dashboard (AWS us-east-1):** http://100.31.116.240/ (read-only) · onboarding: http://100.31.116.240/onboard · the box re-pulls this repo every 5 minutes (`deploy/user-data.sh`)
 - **Write-up:** [WRITEUP.md](WRITEUP.md) · **Build log:** [hackathon.md](hackathon.md)
 
 ## Results (honest numbers)

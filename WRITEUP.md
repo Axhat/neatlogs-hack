@@ -48,4 +48,4 @@ A guided onboarding (`/onboard`): paste a public repo URL for a real read-only s
 ## Links
 - Repo: https://github.com/Axhat/neatlogs-hack
 - Progress thread: https://x.com/axhat_/status/2108951386805387510
-- Dashboard (AWS us-east-1, may be taken down after judging): http://54.147.135.237/
+- Dashboard (AWS us-east-1, may be taken down after judging): http://100.31.116.240/

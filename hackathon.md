@@ -44,7 +44,7 @@ What changed (driven by the baseline trace): import graph -> only affected files
 - Deep link: https://app.neatlogs.com/traces/<trace_id>?orgId=dac38424-2836-4527-95a0-ceea14b47efd&projectId=a2e32ac6-ebdc-429e-adbf-8235258a1776
 
 ### Deployment (AWS, us-east-1)
-- Read-only dashboard served from EC2 `i-0ca61987b0c92f116` (t2.micro, Amazon Linux 2023, Hackathon_VPC public subnet, HTTP/80 only, no SSH key). Live at http://54.147.135.237/ (public IP is not an Elastic IP; it changes if the instance is stopped and started).
+- Read-only dashboard served from EC2 `i-0ca61987b0c92f116` (t2.micro, Amazon Linux 2023, Hackathon_VPC public subnet, HTTP/80 only, no SSH key). Live at http://100.31.116.240/ (public IP is not an Elastic IP; it changes if the instance is stopped and started).
 - Booted from `deploy/user-data.sh`: clones this repo, installs `web/requirements.txt`, runs uvicorn under systemd. No secrets on the box; the agent runner (which uses the LiteLLM key) is NOT deployed.
 - The dashboard queries the public OSV.dev API (10-minute cache). Revenue-at-risk figures are demo inputs from `demo/shop/business.yaml`.
 
@@ -69,3 +69,8 @@ See OSS_REPLAY.md. 4 real repos (of 51 tried; only 6 reproducible at all), agent
 ### Python-aware targets, onboarding
 - agent/osv.py `safe_target`: smallest upgrade with no known advisories that the project's Python can install; reports what is blocked until Python is upgraded.
 - web/onboard.py + web/static/onboard.html: read-only scan of a public GitHub repo, suggested (unconfirmed) features/owners from folders and CODEOWNERS, trust-level choice. Prototype.
+
+### Deployment v2 (AWS us-east-1, second hackathon account)
+- Live: http://100.31.116.240/ and /onboard (t2.micro, Amazon Linux 2023, Hackathon_VPC public subnet, HTTP/80 only, no SSH key). The boot script installs the app and a systemd timer that `git pull`s this repo every 5 minutes, so updates need no console access.
+- Why a second instance: the hackathon allows ONE EC2 instance per user and auto-terminates a second one; our first instance (other account) was left running but cannot be updated (its boot script runs once, no SSH key). The organization policy also blocks tagging security groups at creation, so the box has only a Name tag.
+- Public IP is not an Elastic IP; it changes if the instance is stopped and started.
