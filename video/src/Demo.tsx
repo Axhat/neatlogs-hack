@@ -161,9 +161,46 @@ const Recovery = ({ d }: any) => {
     <div style={{ display: "flex", gap: 22, width: "100%", height: "100%" }}>
       <div style={{ flex: 1.45 }}><Shot src="failure-recovery-trace.jpg" d={d} zoom={0.03} /></div>
       <div style={{ flex: 1, background: CARD, border: `1px solid ${LINE}`, borderRadius: 12, padding: "22px", fontFamily: mono, fontSize: 18, lineHeight: 1.5 }}>
-        <div style={{ color: DIM, fontFamily: font, fontSize: 18, marginBottom: 12 }}>What the agent did (real run)</div>
+        <div style={{ color: DIM, fontFamily: font, fontSize: 18, marginBottom: 12 }}>Recovery point (real repo: Snehasis5/ci-cd-demo)</div>
         {events.map((e, i) => <div key={i} style={{ color: e.ok ? INK : RED, marginBottom: 14, opacity: f(n, 15 + i * 22, 30 + i * 22), fontWeight: e.ok ? 400 : 700 }}>{i + 1}. {e.t}</div>)}
       </div>
+    </div>
+  );
+};
+
+const sessions = [
+  { id: "oss-funkaoshi_osr-opml", steps: 5, tok: "16.9k", note: "lxml → 6.1.0 · 18 tests pass", bad: false },
+  { id: "oss-apqlzm_scraposer", steps: 5, tok: "25.3k", note: "requests + lxml · tests pass", bad: false },
+  { id: "oss-Snehasis5_ci-cd-demo", steps: 6, tok: "7.5k", note: "1 failed action → recovered · tests pass", bad: true },
+  { id: "oss-kapihllkumar_my-blog-practice", steps: 5, tok: "5.6k", note: "requests → 2.32.5 · tests pass", bad: false },
+];
+const RealSessions = () => {
+  const n = useCurrentFrame();
+  return (
+    <div style={{ width: "100%", background: CARD, borderRadius: 12, border: `1px solid ${LINE}`, padding: "24px 30px", fontFamily: mono, fontSize: 19 }}>
+      <div style={{ color: DIM, fontFamily: font, fontSize: 20, marginBottom: 14 }}>neatlogs sessions, one per real open-source repo (workflow: blast-radius-oss)</div>
+      {sessions.map((x, i) => (
+        <div key={x.id} style={{ display: "grid", gridTemplateColumns: "2.3fr 0.7fr 0.8fr 2fr", gap: 14, padding: "13px 0", borderBottom: `1px solid ${LINE}`, opacity: f(n, 8 + i * 12, 22 + i * 12), color: x.bad ? RED : INK }}>
+          <div style={{ fontWeight: 700 }}>{x.id}</div><div>{x.steps} steps</div><div>{x.tok} tok</div><div style={{ color: x.bad ? RED : GREEN }}>{x.note}</div>
+        </div>
+      ))}
+      <div style={{ marginTop: 16, color: DIM, fontFamily: font, fontSize: 18, opacity: f(n, 70, 90) }}>Values read from the neatlogs session outputs. Token cost is an estimate.</div>
+    </div>
+  );
+};
+
+const SnapshotTerminal = () => {
+  const n = useCurrentFrame();
+  const lines = [
+    { c: DIM, t: "$ entire graph snapshot --repo . --format ndjson" },
+    { c: INK, t: "70 files · 723 symbols · 1,655 relations · 166 external refs" },
+    { c: GREEN, t: "local only, no egress. The same graph the agent queries." },
+    { c: DIM, t: "$ entire checkpoint list" },
+    { c: INK, t: "28 checkpoints on main. Every commit is tied to the session that made it." },
+  ];
+  return (
+    <div style={{ width: "100%", background: CARD, borderRadius: 12, border: `1px solid ${LINE}`, padding: "30px 34px", fontFamily: mono, fontSize: 22, lineHeight: 1.9 }}>
+      {lines.map((l, i) => <div key={i} style={{ color: l.c, opacity: f(n, 8 + i * 14, 22 + i * 14) }}>{l.t}</div>)}
     </div>
   );
 };
@@ -251,9 +288,17 @@ const scenes: Record<string, SceneDef> = {
     <Scene dur={d} tool="neatlogs" title="4. When an action fails" caption={<>A real failure: the install broke. The agent read the error, switched to a version the project can run, and the tests passed. Now it picks that version up front.</>}>
       <Recovery d={d} />
     </Scene>) },
-  entire: { sec: 12, render: (d) => (
-    <Scene dur={d} tool="Entire" title="5. Graph and checkpoints" caption={<>Graph finds the file and its covering test in ~260 ms. Each commit is tied to the session that made it: checkpoint <b>01M4JYYTA9J94PDTA97JDYS36X</b>.</>}>
-      <Switch parts={[{ from: 0, to: 6, node: <GraphTerminal /> }, { from: 6, to: 12, node: <div style={{ width: "100%", height: "100%" }}><Shot src="entire-checkpoint.jpg" d={180} zoom={0.04} /></div> }]} />
+  entire: { sec: 16, render: (d) => (
+    <Scene dur={d} tool="Entire" title="5. Graph, snapshot and checkpoints" caption={<>Graph finds the file and its covering test in ~260 ms, a snapshot maps the whole repo, and each commit is tied to its session: checkpoint <b>01M4JYYTA9J94PDTA97JDYS36X</b>.</>}>
+      <Switch parts={[{ from: 0, to: 5, node: <GraphTerminal /> }, { from: 5, to: 10, node: <SnapshotTerminal /> }, { from: 10, to: 16, node: <div style={{ width: "100%", height: "100%" }}><Shot src="entire-checkpoint.jpg" d={180} zoom={0.04} /></div> }]} />
+    </Scene>) },
+  live: { sec: 15, render: (d) => (
+    <Scene dur={d} title="3. Live on AWS (us-east-1)" caption={<>The deployed app at <b>100.31.116.240</b>: <b style={{ color: RED }}>$13,500/day at risk</b>, then <b style={{ color: GREEN }}>$0</b> after the fix (demo data). Onboarding scans a real GitHub repo live.</>}>
+      <Slides srcs={["live-before.jpg", "live-after.jpg", "live-onboard.jpg"]} d={d} />
+    </Scene>) },
+  realneat: { sec: 14, render: (d) => (
+    <Scene dur={d} tool="neatlogs" title="4. neatlogs on a real repo: failure and recovery" caption={<>On real repos the agent hit a failure: the install broke at step 2. neatlogs recorded it, and the agent resumed from that point with a version the project can run. Tests passed.</>}>
+      <Switch parts={[{ from: 0, to: 5, node: <RealSessions /> }, { from: 5, to: 14, node: <Recovery d={270} /> }]} />
     </Scene>) },
   replay: { sec: 10, render: (d) => (
     <Scene dur={d} title="6. Does it work on real code?" caption={<>We rewound real repos to just before maintainers merged a fix, ran the agent, and compared. Tests pass; it matched or beat the human fix.</>}>
@@ -270,7 +315,7 @@ const scenes: Record<string, SceneDef> = {
   end: { sec: 8, render: () => <End /> },
 };
 
-const FULL = ["hook", "run", "dash", "neat", "fail", "entire", "replay", "onboard", "cfo", "end"];
+const FULL = ["hook", "run", "live", "neat", "realneat", "entire", "replay", "onboard", "cfo", "end"];
 const SHORT = ["hook", "run", "neat", "replay", "cfo", "end"];
 const SHORT_SEC: Record<string, number> = { hook: 5, run: 9, neat: 8, replay: 8, cfo: 7, end: 6 };
 
