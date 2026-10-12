@@ -86,7 +86,10 @@ async def onboard_scan(req: Request):
     if onboard.rate_limited(ip):
         return {"error": "Rate limit: 6 scans per hour. Please try again later."}
     body = await req.json()
-    return onboard.scan_repo(str(body.get("repo_url", "")))
+    try:
+        return onboard.scan_repo(str(body.get("repo_url", "")))
+    except Exception:
+        return {"error": "Could not scan this repo (unexpected requirements format). Try another repo."}
 
 
 @app.get("/onboard")

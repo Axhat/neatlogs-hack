@@ -12,8 +12,12 @@ PYPI_URL = "https://pypi.org/pypi/{name}/json"
 def parse_pins(requirements_text):
     pins = {}
     for line in requirements_text.splitlines():
-        m = re.match(r"^\s*([A-Za-z0-9_.\-]+)==([^\s#;]+)", line)
+        m = re.match(r"^\s*([A-Za-z0-9_.\-]+)==([^\s#;,]+)", line)
         if m:
+            try:
+                Version(m.group(2))  # skip wildcards like 6.* and other non-exact pins
+            except InvalidVersion:
+                continue
             pins[m.group(1)] = m.group(2)
     return pins
 
