@@ -1,0 +1,29 @@
+1. Attach the video reply to the thread (you).
+2. Check the thread’s images load.
+
+---
+
+small write to be shared in the discord group msg don't give in a separete md file instead write it here only
+
+---
+
+STEP 1 — Quote-tweet the official neatlogs launch post
+
+🔗 https://x.com/bettersayAJ/status/2109639214723932495
+
+Don’t forget to tag @neatlogs, @EntireHQ, and @arithecfo
+
+STEP 2 — Submit your project
+
+👉 https://neatlogs.com/submission
+
+https://drive.google.com/file/d/REDACTED/view
+
+Checkout the guide -   
+Keep the demo present there also keep the GitHub Link also
+Video should also contain the run - also the role of enatlogs on a real repo real repo should also contain that as well 
+Neatlogs should recover from a point and entire snapshot should also be there 
+
+tag related handles as well 
+
+do the needful for the submission also add the demo as well for the deployed application
